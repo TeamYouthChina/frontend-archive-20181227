@@ -6,7 +6,7 @@ const apiHelper = (parameter, data = undefined) => {
   return fetch(
     'https://www.youthchina.group/api/' + parameter,
     {
-      method: data === null ? 'GET' : 'POST',
+      method: data ? 'POST' : 'GET',
       headers: {
         'cache-control': 'no-store',
         'token': store.getState().authentication.token,
