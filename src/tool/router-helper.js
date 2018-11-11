@@ -1,14 +1,19 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
+import {Login} from '../ui/login';
 import {People} from '../ui/people';
 import {Organization} from '../ui/organization';
 import {Job} from '../ui/job';
 import {PageNoFound} from '../ui/page-no-found';
 
-const Delivery = (props) => {
+const RouterHelper = (props) => {
   return (
     <Switch>
+      <Route
+        path={props.match.path + 'login/' /* eslint-disable-line react/prop-types */}
+        component={Login}
+      />
       <Route
         path={props.match.path + 'people/:id' /* eslint-disable-line react/prop-types */}
         component={People}
@@ -26,6 +31,6 @@ const Delivery = (props) => {
   );
 };
 
-Delivery.propTypes = {};
+RouterHelper.propTypes = {};
 
-export {Delivery};
+export {RouterHelper};
