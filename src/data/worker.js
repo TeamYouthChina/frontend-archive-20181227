@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 
 import {call, put} from 'redux-saga/effects';
-import {apiHelper} from '../../tool/api-helper';
-import * as actionJs from '../action';
+
+import * as actionJs from './action';
+import {apiHelper} from '../tool/api-helper';
 
 const initialize = function* () {
 };
@@ -19,7 +20,7 @@ const login = function* (action) {
       standardData
     ));
   } catch (error) {
-    console.log('redux/saga/worker.login', error);
+    console.log('data/saga/worker.login', error);
   }
 };
 
@@ -35,7 +36,7 @@ const logout = function* () {
       standardData
     ));
   } catch (error) {
-    console.log('redux/saga/worker.logout', error);
+    console.log('data/saga/worker.logout', error);
   }
 };
 

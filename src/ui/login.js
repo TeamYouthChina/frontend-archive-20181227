@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {store} from '../App';
-import * as actionJs from '../redux/action';
+import {store} from '../data/store';
+import * as actionJs from '../data/action';
 
 class Login extends React.Component {
   constructor(props) {

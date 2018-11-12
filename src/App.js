@@ -1,32 +1,15 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import createSagaMiddleware from 'redux-saga';
-import {createStore, applyMiddleware} from 'redux';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import * as actionJs from './redux/action';
-import reducer from './redux/reducer';
-import saga from './redux/saga/entrance';
-
+// DO NOT exchange the next two lines!
+import {store} from './data/store';
+import {sagaMiddleware, saga} from './data/saga';
+import * as actionJs from './data/action';
 import {Home} from './ui/home';
 import {RouterHelper} from './tool/router-helper';
 
-// data
-
-const sagaMiddleware = createSagaMiddleware();
-
-let store = createStore(
-  reducer,
-  applyMiddleware(sagaMiddleware)
-);
-
-sagaMiddleware.run(saga);
-
-store.dispatch(actionJs.creator(
-  actionJs.type.saga.initialize
-));
-
-// ui
+/* UI */
 
 const App = () => {
   return (
@@ -43,4 +26,12 @@ const App = () => {
 
 App.propTypes = {};
 
-export {store, App};
+/* start */
+
+sagaMiddleware.run(saga);
+
+store.dispatch(actionJs.creator(
+  actionJs.type.saga.initialize
+));
+
+export {App};

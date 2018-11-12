@@ -1,4 +1,4 @@
-const state = {
+const initialState = {
   authentication: {
     id: null,
     token: null,
@@ -6,4 +6,4 @@ const state = {
   }
 };
 
-export {state};
+export {initialState};

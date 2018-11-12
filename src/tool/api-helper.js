@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-import {store} from '../App';
+import {store} from '../data/store';
 
 const apiHelper = (parameter, data = undefined) => {
   return fetch(

@@ -1,6 +1,6 @@
 import {takeLatest} from 'redux-saga/effects';
-import * as actionJs from '../action';
 
+import * as actionJs from './action';
 import * as worker from './worker';
 
 const initialize = function* () {
