@@ -1,13 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Organization = (props) => {
   return (
     <div>
-      Organization ID: {props.match.params.id /* eslint-disable-line react/prop-types */}
+      Organization ID: {props.match.params.id}
     </div>
   );
 };
 
-Organization.propTypes = {};
+Organization.propTypes = {
+  // router
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  // react
+  language: PropTypes.string.isRequired
+};
 
 export {Organization};

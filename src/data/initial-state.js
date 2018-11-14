@@ -1,9 +1,7 @@
 const initialState = {
-  authentication: {
-    id: null,
-    token: null,
-    status: null
-  }
+  // id: {undefined, String()}
+  // token: {undefined, String()}
+  language: 'zh_CN' // language: {'zh_CN', 'en_US'}
 };
 
 export {initialState};

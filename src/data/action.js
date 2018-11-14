@@ -1,12 +1,7 @@
 const type = {
-  global: {
-    authentication: 'global.authentication'
-  },
-  saga: {
-    initialize: 'saga.initialize',
-    login: 'saga.login',
-    logout: 'saga.logout',
-  }
+  id: 'id',
+  token: 'token',
+  language: 'language'
 };
 
 const creator = (type, value = undefined) => {

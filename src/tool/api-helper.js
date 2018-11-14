@@ -2,21 +2,21 @@ import fetch from 'isomorphic-fetch';
 
 import {store} from '../data/store';
 
-const apiHelper = (parameter, data = undefined) => {
+const apiHelper = (urlParameter, sentData = undefined) => {
   return fetch(
-    'https://www.youthchina.group/api/' + parameter,
+    'https://www.youthchina.group/api/v1/' + urlParameter,
     {
-      method: data ? 'POST' : 'GET',
+      method: sentData ? 'POST' : 'GET',
       headers: {
         'cache-control': 'no-store',
-        'token': store.getState().authentication.token,
+        'token': store.getState().token,
       },
-      body: data
+      body: sentData
     }
   ).then((response) => {
     return response.json();
-  }).then((data) => {
-    return data;
+  }).then((receivedData) => {
+    return receivedData;
   });
 };
 

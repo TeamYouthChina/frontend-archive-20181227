@@ -3,9 +3,17 @@ import * as actionJs from './action';
 
 export default (state = init.initialState, action) => {
   switch (action.type) {
-    case actionJs.type.global.authentication:
+    case actionJs.type.id:
       return Object.assign({}, state, {
-        authorization: action.value
+        id: action.value
+      });
+    case actionJs.type.token:
+      return Object.assign({}, state, {
+        token: action.value
+      });
+    case actionJs.type.language:
+      return Object.assign({}, state, {
+        language: action.value
       });
     default:
       return {

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.10.7",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
@@ -10,8 +11,7 @@
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
-    "redux": "^4.0.1",
-    "redux-saga": "^0.16.2"
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,5 +27,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "babel-plugin-import": "^1.11.0"
+  }
 }

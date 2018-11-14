@@ -1,36 +1,53 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Route, Switch} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
+import {Home} from '../ui/home';
 import {Login} from '../ui/login';
-import {People} from '../ui/people';
+import {People} from '../ui/people/index';
 import {Organization} from '../ui/organization';
 import {Job} from '../ui/job';
 import {PageNoFound} from '../ui/page-no-found';
 
-const RouterHelper = (props) => {
+const RouterHelperReact = (props) => {
   return (
     <Switch>
       <Route
-        path={props.match.path + 'login/' /* eslint-disable-line react/prop-types */}
-        component={Login}
+        exact path="/"
+        component={routeProps => <Home {...routeProps} language={props.language}/>}
       />
       <Route
-        path={props.match.path + 'people/:id' /* eslint-disable-line react/prop-types */}
-        component={People}
+        path="/login/"
+        component={routeProps => <Login {...routeProps} language={props.language}/>}
       />
       <Route
-        path={props.match.path + 'organization/:id' /* eslint-disable-line react/prop-types */}
-        component={Organization}
+        path="/people/:id"
+        component={routeProps => <People {...routeProps} language={props.language}/>}
       />
       <Route
-        path={props.match.path + 'job/:id' /* eslint-disable-line react/prop-types */}
-        component={Job}
+        path="/organization/:id"
+        component={routeProps => <Organization {...routeProps} language={props.language}/>}
       />
-      <Route component={PageNoFound}/>
+      <Route
+        path="/job/:id"
+        component={routeProps => <Job {...routeProps} language={props.language}/>}
+      />
+      <Route component={routeProps => <PageNoFound {...routeProps} language={props.language}/>}/>
     </Switch>
   );
 };
 
-RouterHelper.propTypes = {};
+RouterHelperReact.propTypes = {
+  language: PropTypes.string.isRequired
+};
+
+const RouterHelper = connect(
+  (state) => {
+    return {
+      language: state.language
+    };
+  }
+)(RouterHelperReact);
 
 export {RouterHelper};
