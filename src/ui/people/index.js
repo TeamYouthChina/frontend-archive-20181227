@@ -2,20 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {languageHelper} from '../../tool/language-helper';
-// import {apiHelper} from '../../tool/api-helper';
-
 import {Education} from './education';
+import {Experience} from './experience';
+import {Extracurricular} from './extracurricular';
+import {Project} from './project';
+import {Certification} from './certification';
+import {Skill} from './skill';
+import {Basic} from './basic';
+
 
 const i18n = [
   {
     basic: '基本',
-    education: '教育',
-    experience: '工作经历'
+    project: '教育',
+    skill: '工作经历'
   },
   {
     basic: 'Basic',
-    education: 'Education',
-    experience: 'Experience'
+    project: 'Education',
+    skill: 'Experience'
   }
 ];
 
@@ -24,41 +29,97 @@ class People extends React.Component {
     super(props);
     /*
     * */
-    this.state = {
-      education: {}
-    };
+    // simulation data
+    if (this.props.match.params.id > 5) {
+      this.state = {
+        type: 'B'
+      };
+    } else {
+      this.state = {
+        type: 'C'
+      };
+    }
     /*
     * */
     this.text = i18n[languageHelper(this.props.language)];
   }
 
   render() {
-    /*
-    apiHelper('...').then((receivedData) => {
-      this.setState({list: receivedData});
-    });
-    */
     return (
       <div
         style={{
           display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center'
+          flexDirection: 'column',
+          backgroundColor: '#f7f7f7'
         }}
       >
         <div
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: 1000
+            background: '#1569e0',
+            boxShadow: '0 0 4px 1px rgba(0,0,0,0.05), 2px 2px 6px 2px rgba(0,0,0,0.15)',
+            position: 'fixed',
+            height: '55px',
+            width: document.body.offsetWidth
           }}
         >
-          <div>
-            People ID: {this.props.match.params.id}
-          </div>
-          <br/>
+        </div>
+        <div
+          style={{
+            marginTop: '55px',
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
           {
-            this.state.education ? <Education language={this.props.language}/> : null
+            this.state.type === 'B' ? (
+              null
+            ) : (
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  width: 1224,
+                }}
+              >
+                <div>
+                  <Basic language={this.props.language}/>
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between'
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      width: '66.66%',
+                      marginRight: '12px'
+                    }}
+                  >
+                    <Education language={this.props.language}/>
+                    <Experience language={this.props.language}/>
+                    <Certification language={this.props.language}/>
+                    <Extracurricular language={this.props.language}/>
+                    <Project language={this.props.language}/>
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      width: '33.33%',
+                      marginLeft: '12px'
+                    }}
+                  >
+                    <Skill language={this.props.language}/>
+                  </div>
+
+                </div>
+
+
+              </div>
+            )
           }
         </div>
       </div>

@@ -7,18 +7,16 @@ import * as cssStyle from './cssStyle';
 
 const i18n = [
   {
-    education: '教育',
-    major: '专业：',
-    addProject: '添加学校'
+    skill: '工作经历',
+    addSkill: '添加工作经历'
   },
   {
-    education: 'Education',
-    major: 'Major in ',
-    addProject: 'Add School'
+    skill: 'Experience',
+    addSkill: 'Add Work Experience'
   }
 ];
 
-class Education extends React.Component {
+class Experience extends React.Component {
   constructor(props) {
     super(props);
     /*
@@ -28,25 +26,23 @@ class Education extends React.Component {
       list: [
         {
           id: 1,
-          degree: '硕士',
-          university: '乔治华盛顿大学',
-          major: '计算机科学',
-          location: '美国 华盛顿特区',
+          employer: '百度',
+          location: '中国 上海',
+          position: '软件工程师',
           duration: {
-            begin: '2018年9月',
-            end: '2020年7月'
+            begin: '2016年7月',
+            end: '2017年6月'
           },
           others: '（暂无）'
         },
         {
           id: 2,
-          degree: '学士',
-          university: '同济大学',
-          major: '计算机科学与技术',
+          employer: '阿里巴巴',
           location: '中国 上海',
+          position: '软件工程师',
           duration: {
-            begin: '2012年9月',
-            end: '2016年7月'
+            begin: '2017年7月',
+            end: '2018年6月'
           },
           others: '（暂无）'
         }
@@ -62,7 +58,7 @@ class Education extends React.Component {
       <div style={cssStyle.peopleCard}>
         <div style={cssStyle.peopleCardTitle}>
           <p style={cssStyle.textStyle3}>
-            {this.text.education}
+            {this.text.skill}
           </p>
         </div>
         {
@@ -80,13 +76,12 @@ class Education extends React.Component {
                     height={54}
                   />
                 </div>
-                <div
-                  style={cssStyle.peopleCardItemRight}
-                >
+                <div style={cssStyle.peopleCardItemRight}>
                   <div style={cssStyle.peopleCardItemRightTop}>
-                    <div style={cssStyle.peopleCardItemRightTopLeft}>
-                      <p style={cssStyle.textStyle3}> {item.university}</p>
-                      <p style={cssStyle.textStyle2}> {item.degree}</p>
+                    <div
+                      style={cssStyle.peopleCardItemRightTopLeft}>
+                      <p style={cssStyle.textStyle3}> {item.position}</p>
+                      <p style={cssStyle.textStyle2}> {item.employer}</p>
                     </div>
                     <div style={cssStyle.peopleCardItemRightTopRight}>
                       <button
@@ -112,11 +107,10 @@ class Education extends React.Component {
                   </div>
                   <div style={cssStyle.peopleCardItemRightBottom}>
                     <p style={cssStyle.textStyle1}>
-                      {item.duration.begin + ' - ' + item.duration.end}
+                      {item.duration.begin + ' - ' + item.duration.end + ' | ' + item.location}
                     </p>
                     <p style={cssStyle.textStyle1}>
-                      <span style={{fontWeight: 'bold'}}>{this.text.major}</span>
-                      {item.major}
+                      {item.others}
                     </p>
                   </div>
                 </div>
@@ -126,16 +120,16 @@ class Education extends React.Component {
         }
         <div style={cssStyle.peopleCardLine}/>
         <button style={cssStyle.peopleCardButton}>
-          {this.text.addProject}
+          {this.text.addSkill}
         </button>
       </div>
     );
   }
 }
 
-Education.propTypes = {
+Experience.propTypes = {
   // react
   language: PropTypes.string.isRequired
 };
 
-export {Education};
+export {Experience};
