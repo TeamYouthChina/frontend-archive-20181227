@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {languageHelper} from '../../tool/language-helper';
+import {languageHelper} from '../tool/language-helper';
 import {Education} from './education';
 import {Experience} from './experience';
 import {Extracurricular} from './extracurricular';

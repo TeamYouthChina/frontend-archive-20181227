@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {languageHelper} from '../../tool/language-helper';
+import {languageHelper} from '../tool/language-helper';
 import * as cssStyle from './cssStyle';
 
 
 const i18n = [
   {
-    project: '社团和组织经历',
+    education: '教育',
+    major: '专业：',
     addProject: '添加学校'
   },
   {
-    project: 'Organization / Extracurricular',
-    addProject: 'Add Organization / Extracurricular'
+    education: 'Education',
+    major: 'Major in ',
+    addProject: 'Add School'
   }
 ];
 
-class Extracurricular extends React.Component {
+class Education extends React.Component {
   constructor(props) {
     super(props);
     /*
@@ -26,23 +28,25 @@ class Extracurricular extends React.Component {
       list: [
         {
           id: 1,
-          role: '志愿者',
-          organization: '2015年上海国际马拉松赛',
-          location: '中国 上海',
+          degree: '硕士',
+          university: '乔治华盛顿大学',
+          major: '计算机科学',
+          location: '美国 华盛顿特区',
           duration: {
-            begin: '2015年11月',
-            end: '2015年11月'
+            begin: '2018年9月',
+            end: '2020年7月'
           },
           others: '（暂无）'
         },
         {
           id: 2,
-          role: '志愿者',
-          organization: '2014年上海国际马拉松赛',
+          degree: '学士',
+          university: '同济大学',
+          major: '计算机科学与技术',
           location: '中国 上海',
           duration: {
-            begin: '2014年11月',
-            end: '2014年11月'
+            begin: '2012年9月',
+            end: '2016年7月'
           },
           others: '（暂无）'
         }
@@ -58,7 +62,7 @@ class Extracurricular extends React.Component {
       <div style={cssStyle.peopleCard}>
         <div style={cssStyle.peopleCardTitle}>
           <p style={cssStyle.textStyle3}>
-            {this.text.project}
+            {this.text.education}
           </p>
         </div>
         {
@@ -76,16 +80,17 @@ class Extracurricular extends React.Component {
                     height={54}
                   />
                 </div>
-                <div style={cssStyle.peopleCardItemRight}>
+                <div
+                  style={cssStyle.peopleCardItemRight}
+                >
                   <div style={cssStyle.peopleCardItemRightTop}>
-                    <div
-                      style={cssStyle.peopleCardItemRightTopLeft}>
-                      <p style={cssStyle.textStyle3}> {item.role}</p>
-                      <p style={cssStyle.textStyle2}> {item.organization}</p>
+                    <div style={cssStyle.peopleCardItemRightTopLeft}>
+                      <p style={cssStyle.textStyle3}> {item.university}</p>
+                      <p style={cssStyle.textStyle2}> {item.degree}</p>
                     </div>
                     <div style={cssStyle.peopleCardItemRightTopRight}>
                       <button
-                        style={cssStyle.peopleCardBotton2}
+                        style={cssStyle.peopleCardButton2}
                       >
                         <div style={{width: '20px'}}>
                           <svg
@@ -109,6 +114,10 @@ class Extracurricular extends React.Component {
                     <p style={cssStyle.textStyle1}>
                       {item.duration.begin + ' - ' + item.duration.end}
                     </p>
+                    <p style={cssStyle.textStyle1}>
+                      <span style={{fontWeight: 'bold'}}>{this.text.major}</span>
+                      {item.major}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -124,9 +133,9 @@ class Extracurricular extends React.Component {
   }
 }
 
-Extracurricular.propTypes = {
+Education.propTypes = {
   // react
   language: PropTypes.string.isRequired
 };
 
-export {Extracurricular};
+export {Education};

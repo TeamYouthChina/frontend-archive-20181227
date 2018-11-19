@@ -125,9 +125,9 @@ export const peopleCardProjectAdd = {
   width: '100%',
 };
 
-export const peopleCardBotton2 = {
+export const peopleCardButton2 = {
   border: 0,
   backgroundColor: 'transparent',
   display: 'flex',
   padding: '0px'
-}
+};

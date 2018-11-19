@@ -1,24 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {languageHelper} from '../../tool/language-helper';
+import {languageHelper} from '../tool/language-helper';
 import * as cssStyle from './cssStyle';
 
 
 const i18n = [
   {
-    education: '教育',
-    major: '专业：',
-    addProject: '添加学校'
+    certification: '证书',
+    addCertificate: '添加证书'
   },
   {
-    education: 'Education',
-    major: 'Major in ',
-    addProject: 'Add School'
+    certification: 'Certification',
+    addCertificate: 'Add Certification'
   }
 ];
 
-class Education extends React.Component {
+class Certification extends React.Component {
   constructor(props) {
     super(props);
     /*
@@ -28,27 +26,25 @@ class Education extends React.Component {
       list: [
         {
           id: 1,
-          degree: '硕士',
-          university: '乔治华盛顿大学',
-          major: '计算机科学',
-          location: '美国 华盛顿特区',
+          name: '一级注册结构工程师',
+          number: '12345',
+          authority: '中华人民共和国住房与城乡建设部',
           duration: {
-            begin: '2018年9月',
-            end: '2020年7月'
+            begin: '2016年9月',
+            end: '2036年9月'
           },
-          others: '（暂无）'
+          others: ''
         },
         {
           id: 2,
-          degree: '学士',
-          university: '同济大学',
-          major: '计算机科学与技术',
-          location: '中国 上海',
+          name: '注册会计师',
+          number: '67890',
+          authority: '中国注册会计师协会',
           duration: {
-            begin: '2012年9月',
-            end: '2016年7月'
+            begin: '2017年9月',
+            end: '2027年9月'
           },
-          others: '（暂无）'
+          others: ''
         }
       ]
     };
@@ -62,7 +58,7 @@ class Education extends React.Component {
       <div style={cssStyle.peopleCard}>
         <div style={cssStyle.peopleCardTitle}>
           <p style={cssStyle.textStyle3}>
-            {this.text.education}
+            {this.text.certification}
           </p>
         </div>
         {
@@ -85,12 +81,12 @@ class Education extends React.Component {
                 >
                   <div style={cssStyle.peopleCardItemRightTop}>
                     <div style={cssStyle.peopleCardItemRightTopLeft}>
-                      <p style={cssStyle.textStyle3}> {item.university}</p>
-                      <p style={cssStyle.textStyle2}> {item.degree}</p>
+                      <p style={cssStyle.textStyle3}> {item.name}</p>
+                      <p style={cssStyle.textStyle2}> {item.number}</p>
                     </div>
                     <div style={cssStyle.peopleCardItemRightTopRight}>
                       <button
-                        style={cssStyle.peopleCardBotton2}
+                        style={cssStyle.peopleCardButton2}
                       >
                         <div style={{width: '20px'}}>
                           <svg
@@ -115,8 +111,7 @@ class Education extends React.Component {
                       {item.duration.begin + ' - ' + item.duration.end}
                     </p>
                     <p style={cssStyle.textStyle1}>
-                      <span style={{fontWeight: 'bold'}}>{this.text.major}</span>
-                      {item.major}
+                      {item.authority}
                     </p>
                   </div>
                 </div>
@@ -126,16 +121,16 @@ class Education extends React.Component {
         }
         <div style={cssStyle.peopleCardLine}/>
         <button style={cssStyle.peopleCardButton}>
-          {this.text.addProject}
+          {this.text.addCertificate}
         </button>
       </div>
     );
   }
 }
 
-Education.propTypes = {
+Certification.propTypes = {
   // react
   language: PropTypes.string.isRequired
 };
 
-export {Education};
+export {Certification};

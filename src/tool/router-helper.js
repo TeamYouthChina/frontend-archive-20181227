@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import {Home} from '../ui/home';
 import {Login} from '../ui/login';
-import {People} from '../ui/people/index';
+import {People} from '../ui/people';
 import {Organization} from '../ui/organization';
 import {Job} from '../ui/job';
 import {PageNoFound} from '../ui/page-no-found';

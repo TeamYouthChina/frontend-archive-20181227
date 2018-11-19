@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {languageHelper} from '../../tool/language-helper';
+import {languageHelper} from '../tool/language-helper';
 import * as cssStyle from './cssStyle';
 
 
@@ -85,7 +85,7 @@ class Experience extends React.Component {
                     </div>
                     <div style={cssStyle.peopleCardItemRightTopRight}>
                       <button
-                        style={cssStyle.peopleCardBotton2}
+                        style={cssStyle.peopleCardButton2}
                       >
                         <div style={{width: '20px'}}>
                           <svg
