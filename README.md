@@ -38,4 +38,5 @@ Use [Eslint](https://eslint.org/) to check grammar:
 - All code files are edited by [WebStorm](http://www.jetbrains.com/webstorm/).
 - All ".md" files are edited by [Typora](http://typora.io/).
 - Style of all ".md" files is [Github Flavored Markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown).
-- There is a LF (Linux) at end of each line.
+- There is a LF (Linux) at end of each line..
+
