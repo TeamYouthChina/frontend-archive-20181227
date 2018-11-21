@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 import {Route, Switch} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import {Home} from '../ui/home';
-import {Login} from '../ui/login';
-import {People} from '../ui/people';
-import {Organization} from '../ui/organization';
-import {Job} from '../ui/job';
-import {PageNoFound} from '../ui/page-no-found';
+import {Home} from './home';
+import {Login} from './login';
+import {People} from './people';
+import {Organization} from './organization';
+import {Job} from './job';
+import {PageNoFound} from './page-no-found';
 
-const RouterHelperReact = (props) => {
+const RouterEntryReact = (props) => {
   return (
     <Switch>
       <Route
@@ -18,7 +18,7 @@ const RouterHelperReact = (props) => {
         component={routeProps => <Home {...routeProps} language={props.language}/>}
       />
       <Route
-        path="/login/"
+        path="/login"
         component={routeProps => <Login {...routeProps} language={props.language}/>}
       />
       <Route
@@ -38,16 +38,16 @@ const RouterHelperReact = (props) => {
   );
 };
 
-RouterHelperReact.propTypes = {
+RouterEntryReact.propTypes = {
   language: PropTypes.string.isRequired
 };
 
-const RouterHelper = connect(
+const RouterEntry = connect(
   (state) => {
     return {
       language: state.language
     };
   }
-)(RouterHelperReact);
+)(RouterEntryReact);
 
-export {RouterHelper};
+export {RouterEntry};

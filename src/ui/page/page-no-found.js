@@ -1,15 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Job = (props) => {
+import {TopBar} from '../module/top-bar';
+
+/* route: (no match) */
+
+const PageNoFound = () => {
   return (
     <div>
-      Job ID: {props.match.params.id}
+      <TopBar language={this.props.language}/>
+      <div>
+        PageNoFound
+      </div>
     </div>
   );
 };
 
-Job.propTypes = {
+PageNoFound.propTypes = {
   // route
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
@@ -18,4 +25,4 @@ Job.propTypes = {
   language: PropTypes.string.isRequired
 };
 
-export {Job};
+export {PageNoFound};

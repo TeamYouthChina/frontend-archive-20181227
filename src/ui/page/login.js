@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {TopBar} from '../module/top-bar';
+
+/* route: '/login' */
+
 const Login = () => {
   return (
     <div>
+      <TopBar language={this.props.language}/>
       <div>
         Login
       </div>

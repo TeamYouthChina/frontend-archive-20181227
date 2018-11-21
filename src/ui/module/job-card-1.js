@@ -1,5 +1,4 @@
 import React from 'react';
-import * as cssStyle from './cssStyle';
 
 class JobCard1 extends React.Component {
   constructor(props) {
@@ -48,9 +47,16 @@ class JobCard1 extends React.Component {
             />
           </div>
           <button
-            style={cssStyle.peopleCardButton2}
+            style={{
+              border: 0,
+              backgroundColor: 'transparent',
+              display: 'flex',
+              padding: '0px'
+            }}
           >
-            <div style={{width: '20px'}}>
+            <div
+              style={{width: '20px'}}
+            >
               <svg
                 aria-hidden="true"
                 data-prefix="fal"

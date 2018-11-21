@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PageNoFound = () => {
+/* route: '/organization/:id' */
+
+const Organization = (props) => {
   return (
     <div>
-      PageNoFound
+      Organization ID: {props.match.params.id}
     </div>
   );
 };
 
-PageNoFound.propTypes = {
-  // route
+Organization.propTypes = {
+  // router
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
@@ -18,4 +20,4 @@ PageNoFound.propTypes = {
   language: PropTypes.string.isRequired
 };
 
-export {PageNoFound};
+export {Organization};

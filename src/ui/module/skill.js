@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {languageHelper} from '../tool/language-helper';
-import * as cssStyle from './cssStyle';
-
+import {languageHelper} from '../../tool/language-helper';
 
 const i18n = [
   {
@@ -82,7 +80,7 @@ class Skill extends React.Component {
         },
         {
           id: 15,
-          content: 'Basic'
+          content: 'TopProfile'
         },
         {
           id: 16,
@@ -101,17 +99,40 @@ class Skill extends React.Component {
 
   render() {
     return (
-      <div style={cssStyle.peopleCard}>
-        <div style={cssStyle.peopleCardTitle}>
-          <p style={cssStyle.textStyle3}>
+      <div 
+        style={{
+          backgroundColor: '#fff',
+          borderRadius: '3px',
+          boxShadow: '0 0 4px 1px rgba(0, 0, 0, 0.05), 2px 2px 2px 1px rgba(0, 0, 0, 0.05)',
+          display: 'flex',
+          flexDirection: 'column',
+          marginBottom: '24px'
+        }}
+      >
+        <div 
+          style={{
+            borderTopLeftRadius: '3px',
+            borderTopRightRadius: '3px',
+            padding: '16px',
+          }}
+        >
+          <p style={{
+            color: 'rgba(0,0,0,0.8)',
+            fontSize: '16px',
+            fontWeight: 500,
+            marginBottom: '4.8px',
+            lineHeight: '1.33em'
+          }}>
             {this.text.skill}
           </p>
         </div>
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          padding: '0 16px 16px 16px',
-        }}>
+        <div 
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            padding: '0 16px 16px 16px',
+          }}
+        >
           {
             this.state.list.map(
               item => (

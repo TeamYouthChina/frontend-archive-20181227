@@ -1,21 +1,19 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
-import 'antd/dist/antd.css';
 
 import {store} from './data/store';
-import {RouterHelper} from './tool/router-helper';
+import {RouterEntry} from './ui/page/router-entry';
+import 'antd/dist/antd.css'; // It provides basic style of <body>.
 
 const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <RouterHelper/>
+        <RouterEntry/>
       </BrowserRouter>
     </Provider>
   );
 };
-
-App.propTypes = {};
 
 export {App};

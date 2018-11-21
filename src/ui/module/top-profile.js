@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {languageHelper} from '../tool/language-helper';
-import * as cssStyle from './cssStyle';
-
+import {languageHelper} from '../../tool/language-helper';
 
 const i18n = [
   {
@@ -18,7 +16,7 @@ const i18n = [
   }
 ];
 
-class Basic extends React.Component {
+class TopProfile extends React.Component {
   constructor(props) {
     super(props);
     /*
@@ -32,7 +30,16 @@ class Basic extends React.Component {
 
   render() {
     return (
-      <div style={cssStyle.peopleCard}>
+      <div 
+        style={{
+          backgroundColor: '#fff',
+          borderRadius: '3px',
+          boxShadow: '0 0 4px 1px rgba(0, 0, 0, 0.05), 2px 2px 2px 1px rgba(0, 0, 0, 0.05)',
+          display: 'flex',
+          flexDirection: 'column',
+          marginBottom: '24px'
+        }}
+      >
         <div
           style={{
             height: '150px',
@@ -88,9 +95,9 @@ class Basic extends React.Component {
   }
 }
 
-Basic.propTypes = {
+TopProfile.propTypes = {
   // react
   language: PropTypes.string.isRequired
 };
 
-export {Basic};
+export {TopProfile};

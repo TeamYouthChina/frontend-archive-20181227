@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {languageHelper} from '../tool/language-helper';
-import * as cssStyle from './cssStyle';
-
+import {languageHelper} from '../../tool/language-helper';
 
 const i18n = [
   {
@@ -60,19 +58,55 @@ class Project extends React.Component {
 
   render() {
     return (
-      <div style={cssStyle.peopleCard}>
-        <div style={cssStyle.peopleCardTitle}>
-          <p style={cssStyle.textStyle3}>
+      <div
+        style={{
+          backgroundColor: '#fff',
+          borderRadius: '3px',
+          boxShadow: '0 0 4px 1px rgba(0, 0, 0, 0.05), 2px 2px 2px 1px rgba(0, 0, 0, 0.05)',
+          display: 'flex',
+          flexDirection: 'column',
+          marginBottom: '24px'
+        }}
+      >
+        <div 
+          style={{
+            borderTopLeftRadius: '3px',
+            borderTopRightRadius: '3px',
+            padding: '16px',
+          }}
+        >
+          <p 
+            style={{
+              color: 'rgba(0,0,0,0.8)',
+              fontSize: '16px',
+              fontWeight: 500,
+              marginBottom: '4.8px',
+              lineHeight: '1.33em'
+            }}
+          >
             {this.text.project}
           </p>
         </div>
-        <div style={cssStyle.peopleCardProject}>
+        <div 
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap'
+          }}
+        >
           {
             this.state.list.map(
               item => (
                 <div
                   key={item.id}
-                  style={cssStyle.peopleCardProjectItem}
+                  style={{
+                    border: '1px solid #e0e0e0',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flexShrink: 0,
+                    margin: '0px 15px 15px 15px',
+                    height: '219px',
+                    width: '219px'
+                  }}
                 >
                   <div
                     style={{
@@ -80,12 +114,39 @@ class Project extends React.Component {
                       height: '20px'
                     }}
                   />
-                  <div style={cssStyle.peopleCardProjectItemContent}>
-                    <div style={cssStyle.peopleCardItemRightTop}>
-                      <div style={cssStyle.peopleCardItemRightTopLeft}>
-                        <p style={cssStyle.textStyle3}> {item.name}</p>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      flexGrow: 1,
+                      padding: '10px'
+                    }}
+                  >
+                    <div 
+                      style={{
+                        display: 'flex'
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          flexGrow: 1
+                        }}
+                      >
+                        <p 
+                          style={{
+                            color: 'rgba(0,0,0,0.8)',
+                            fontSize: '16px',
+                            fontWeight: 500,
+                            marginBottom: '4.8px',
+                            lineHeight: '1.33em'
+                          }}
+                        > 
+                          {item.name}
+                        </p>
                       </div>
-                      <div style={cssStyle.peopleCardItemRightTopRight}>
+                      <div>
                         <img
                           src="https://cdn4.iconfinder.com/data/icons/finance-banking-2/32/edit-512.png"
                           alt=""
@@ -95,17 +156,38 @@ class Project extends React.Component {
                       </div>
                     </div>
                     <div>
-                      <p style={cssStyle.textStyle1}>
+                      <p 
+                        style={{
+                          color: 'rgba(0,0,0,0.8)',
+                          fontSize: '13px',
+                          marginBottom: '9.1px',
+                          lineHeight: '1.33em'
+                        }}
+                      >
                         {item.role}
                       </p>
                     </div>
                     <div>
-                      <p style={cssStyle.textStyle1}>
+                      <p 
+                        style={{
+                          color: 'rgba(0,0,0,0.8)',
+                          fontSize: '13px',
+                          marginBottom: '9.1px',
+                          lineHeight: '1.33em'
+                        }}
+                      >
                         {item.duration.begin + ' - ' + item.duration.end}
                       </p>
                     </div>
                     <div>
-                      <p style={cssStyle.textStyle1}>
+                      <p 
+                        style={{
+                          color: 'rgba(0,0,0,0.8)',
+                          fontSize: '13px',
+                          marginBottom: '9.1px',
+                          lineHeight: '1.33em'
+                        }}
+                      >
                         {item.others}
                       </p>
                     </div>
@@ -114,8 +196,29 @@ class Project extends React.Component {
               )
             )
           }
-          <div style={cssStyle.peopleCardProjectItem}>
-            <button style={cssStyle.peopleCardProjectAdd}>
+          <div 
+            style={{
+              border: '1px solid #e0e0e0',
+              display: 'flex',
+              flexDirection: 'column',
+              flexShrink: 0,
+              margin: '0px 15px 15px 15px',
+              height: '219px',
+              width: '219px'
+            }}
+          >
+            <button 
+              style={{
+                backgroundColor: 'transparent',
+                color: 'rgba(0,0,0,0.8)',
+                display: 'flex',
+                flexDirection: 'row',
+                fontSize: '1.6em',
+                height: '100%',
+                justifyContent: 'center',
+                width: '100%',
+              }}
+            >
               <div
                 style={{
                   paddingTop: '4px',

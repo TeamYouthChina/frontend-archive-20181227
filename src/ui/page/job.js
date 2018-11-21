@@ -1,16 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Organization = (props) => {
+import {TopBar} from '../module/top-bar';
+
+/* route: '/job/:id' */
+
+const Job = (props) => {
   return (
     <div>
-      Organization ID: {props.match.params.id}
+      <TopBar language={this.props.language}/>
+      <div>
+        Job ID: {props.match.params.id}
+      </div>
     </div>
   );
 };
 
-Organization.propTypes = {
-  // router
+Job.propTypes = {
+  // route
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
@@ -18,4 +25,4 @@ Organization.propTypes = {
   language: PropTypes.string.isRequired
 };
 
-export {Organization};
+export {Job};
