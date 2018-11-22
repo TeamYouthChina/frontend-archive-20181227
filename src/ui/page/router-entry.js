@@ -9,6 +9,8 @@ import {People} from './people';
 import {Organization} from './organization';
 import {Job} from './job';
 import {PageNoFound} from './page-no-found';
+import {Search} from './search';
+import {Help} from './help';
 
 const RouterEntryReact = (props) => {
   return (
@@ -32,6 +34,14 @@ const RouterEntryReact = (props) => {
       <Route
         path="/job/:id"
         component={routeProps => <Job {...routeProps} language={props.language}/>}
+      />
+      <Route
+        path="/search"
+        component={routeProps => <Search {...routeProps} language={props.language}/>}
+      />
+      <Route
+        path="/help"
+        component={routeProps => <Help {...routeProps} language={props.language}/>}
       />
       <Route component={routeProps => <PageNoFound {...routeProps} language={props.language}/>}/>
     </Switch>

@@ -30,7 +30,7 @@ class TopProfile extends React.Component {
 
   render() {
     return (
-      <div 
+      <div
         style={{
           backgroundColor: '#fff',
           borderRadius: '3px',
