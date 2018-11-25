@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /* route: '/organization/:id' */
-
-const Organization = (props) => {
-  return (
-    <div>
-      Organization ID: {props.match.params.id}
-    </div>
-  );
-};
+class Organization extends React.Component {
+  render() {
+    return (
+      <div>
+        Organization ID: {this.props.match.params.id}
+      </div>
+    );
+  }
+}
 
 Organization.propTypes = {
   // router

@@ -5,16 +5,19 @@ import {TopBar} from '../module/top-bar';
 
 /* route: (no match) */
 
-const PageNoFound = () => {
-  return (
-    <div>
-      <TopBar language={this.props.language}/>
+class PageNoFound extends React.Component {
+  render() {
+    return (
       <div>
-        PageNoFound
+        <TopBar language={this.props.language}/>
+        <div>
+          PageNoFound
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
+
 
 PageNoFound.propTypes = {
   // route

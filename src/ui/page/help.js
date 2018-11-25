@@ -1,4 +1,5 @@
 import React from 'react';
+import {Questions} from '../module/questions';
 
 class Help extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Help extends React.Component {
   render() {
     return (
       <div>
-        Help
+        <Questions language={this.props.language}/>
       </div>
     );
   }

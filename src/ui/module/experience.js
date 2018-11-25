@@ -90,7 +90,7 @@ class Experience extends React.Component {
                   padding: '0px 16px 16px 16px'
                 }}
               >
-                <div 
+                <div
                   style={{
                     display: 'flex',
                     marginRight: '16px'
