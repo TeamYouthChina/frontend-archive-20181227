@@ -3,167 +3,62 @@ import PropTypes from 'prop-types';
 
 import {languageHelper} from '../../tool/language-helper';
 import {TopBar} from './top-bar';
+import {Layout, Menu, Breadcrumb, Divider} from 'antd';
+
+import {QuestionCard} from './question-card';
+
+const {Header, Content, Footer} = Layout;
+
 
 const i18n = [
   {
-    category: '问题类型'
+    pagename: '帮助页',
+    category: '问题分类'
   },
   {
-    category: 'Category'
+    pagename: 'Help',
+    category: 'Problem Types'
   }
 ];
 
 class Questions extends React.Component {
   constructor(props) {
     super(props);
-    /*
-    * */
-    // simulation data
-    this.state = {
-      list: [
-        {
-          id: 1,
-          category: '新手',
-          question: '什么是PEP 8？',
-          answer: 'PEP 8是一个编码约定，一组推荐，关于如何编写Python代码更具可读性。',
-        },
-        {
-          id: 2,
-          category: '简历',
-          question: '个人家庭情况?',
-          answer: '家庭情况对于了解应聘者的性格、观念、心态等有一定的作用。',
-        }
-      ]
-    };
-    /*
-    * */
+
     this.text = i18n[languageHelper(this.props.language)];
   }
 
   render() {
     return (
-
       <div
         style={{
           display: 'flex',
           flexDirection: 'column',
-          backgroundColor: '#ffffff'
+          backgroundColor: '#f3f5f8'
         }}
       >
         <TopBar language={this.props.language}/>
-        <div
-          style={{
-            marginTop: '55px',
-            display: 'flex',
-            justifyContent: 'center'
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: 1224,
-              backgroundColor: '#ffffff'
-            }}
-          >
-            帮助页面
+        <Layout className="layout">
 
-            <div
-              style={{
-                backgroundColor: '#ffffff',
-                borderRadius: '3px',
-                boxShadow: '0 0 4px 1px rgba(0, 0, 0, 0.05), 2px 2px 2px 1px rgba(0, 0, 0, 0.05)',
-                display: 'flex',
-                flexDirection: 'column',
-                marginBottom: '24px'
-              }}
-            >
-              <div
-                style={{
-                  borderTopLeftRadius: '3px',
-                  borderTopRightRadius: '3px',
-                  padding: '16px',
-                }}
-              >
-                <p style={{
-                  color: 'rgba(0,0,0,0.8)',
-                  fontSize: '16px',
-                  fontWeight: 500,
-                  marginBottom: '4.8px',
-                  lineHeight: '1.33em'
-                }}>
-                  {this.text.question}
-                </p>
-              </div>
+          <Content style={{padding: '0 50px'}}>
+            <Breadcrumb style={{margin: '16px 0'}}>
+              <Breadcrumb.Item>
+                {this.text.pagename}
+              </Breadcrumb.Item>
+            </Breadcrumb>
+            <div style={{background: '#f5f7fa', padding: 24, minHeight: 280}}>
+              {this.text.category}
 
-              {
-                this.state.list.map(
-                  item => (
-                    <div
-                      key={item.id}
-                      style={{
-                        display: 'flex',
-                        padding: '0px 16px 16px 16px'
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: 'flex',
-                          marginRight: '16px'
-                        }}
-                      >
-                        <div
-                          style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            flexGrow: 1
-                          }}
-                        >
-                          <div
-                            style={{
-                              display: 'flex'
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                flexGrow: 1
-                              }}
-                            >
-                              <p style={{
-                                color: 'rgba(0,0,0,0.8)',
-                                fontSize: '16px',
-                                fontWeight: 500,
-                                marginBottom: '4.8px',
-                                lineHeight: '1.33em'
-                              }}> {item.category}</p>
-                              <p style={{
-                                color: 'rgba(0,0,0,0.8)',
-                                fontSize: '13px',
-                                fontWeight: 500,
-                                marginBottom: '9.1px',
-                                lineHeight: '1.33em'
-                              }}> {item.question}</p>
-                              <p style={{
-                                color: 'rgba(0,0,0,0.8)',
-                                fontSize: '13px',
-                                fontWeight: 500,
-                                marginBottom: '9.1px',
-                                lineHeight: '1.33em'
-                              }}> {item.answer}</p>
+              <QuestionCard language={this.props.language}/>
 
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                )
-              }
             </div>
-          </div>
-        </div>
+
+
+          </Content>
+          <Footer style={{textAlign: 'center'}}>
+            Ant Design ©2018 Created by Ant UED
+          </Footer>
+        </Layout>
       </div>
     );
   }
