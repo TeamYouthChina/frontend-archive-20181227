@@ -9,11 +9,15 @@ import {TopBar} from '../module/top-bar';
 const i18n = [
   {
     hot: '热门企业',
-    new: '新锐公司'
+    new: '新锐公司',
+    it: 'IT / 互联网',
+    finance: '金融'
   },
   {
     hot: 'Hot',
-    new: 'New'
+    new: 'New',
+    it: 'IT / Internet',
+    finance: 'Finance'
   },
 ];
 
@@ -39,21 +43,7 @@ class Home extends React.Component {
     /*
     * */
     this.state = {
-      selectedTab: 0,
-      list: [
-        {
-          key: 0,
-          fetchURL: 'https://www.google/com'
-        },
-        {
-          key: 1,
-          fetchURL: 'https://www.google/com'
-        },
-        {
-          key: 2,
-          fetchURL: 'https://www.google/com'
-        }
-      ]
+      selectedTab: 1
     };
     /*
     * */
@@ -95,7 +85,7 @@ class Home extends React.Component {
                     this.setState(
                       () => {
                         return {
-                          selectedTab: 0
+                          selectedTab: 1
                         };
                       }
                     );
@@ -111,7 +101,7 @@ class Home extends React.Component {
                     this.setState(
                       () => {
                         return {
-                          selectedTab: 1
+                          selectedTab: 2
                         };
                       }
                     );
@@ -121,19 +111,45 @@ class Home extends React.Component {
                 {this.text.new}
               </button>
             </div>
-            <div>
-              {
-                this.state.list.map(
-                  item =>
-                    <JobCard1List
-                      key={item.key}
-                      name={item.name}
-                      description={item.description}
-                      fetchURL={item.fetchURL}
-                    />
-                )
+            {(() => {
+              let tag;
+              switch (this.state.selectedTab) {
+                case 2:
+                  tag = 'new';
+                  break;
+                default:
+                  tag = 'hot';
+                  break;
               }
-            </div>
+              return (
+                <div>
+                  <JobCard1List
+                    name={this.text.it}
+                    search={{
+                      industry: 'IT',
+                      tagList: [
+                        `${tag}`
+                      ],
+                      page: 1,
+                      size: 4,
+                      skipAuth: true
+                    }}
+                  />
+                  <JobCard1List
+                    name={this.text.finance}
+                    search={{
+                      industry: 'finance',
+                      tagList: [
+                        `${tag}`
+                      ],
+                      page: 1,
+                      size: 4,
+                      skipAuth: true
+                    }}
+                  />
+                </div>
+              );
+            })()}
           </div>
         </div>
       </div>
