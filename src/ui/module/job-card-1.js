@@ -1,24 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import * as apiHelper from '../../tool/api-helper';
 
 class JobCard1 extends React.Component {
   constructor(props) {
     super(props);
     /*
     * */
-    // simulation data <= use `this.props.jobID` to fetch from backend
-    this.state = {
-      name: '2019 Software Engineer Grad',
-      organization: {
-        name: 'Pure Storage',
-        imageURL: 'https://s3.amazonaws.com/handshake.production/app/public/assets/institutions/17130/small/hs-emp-logo-data.?1435354430'
-      },
-      location: 'Mountain View, CA',
-      type: 'Full-Time Job'
-    };
+    this.state = {};
+  }
+
+  componentWillMount() {
+    apiHelper.get(
+      `job/${this.props.id}?detail=1`
+    ).then((receivedData) => {
+      this.setState(receivedData);
+    });
   }
 
   render() {
-    return (
+    return this.state.id ? (
       <div
         style={{
           backgroundColor: '#fff',
@@ -40,7 +41,7 @@ class JobCard1 extends React.Component {
         >
           <div>
             <img
-              src={this.state.organization.imageURL}
+              src={this.state.organization.avatarUrl}
               alt=""
               width={38}
               height={38}
@@ -110,7 +111,7 @@ class JobCard1 extends React.Component {
               color: 'rgba(0,0,0,0.56)'
             }}
           >
-            {this.state.location}
+            {`${this.state.location[0]} ${this.state.location[1]} ${this.state.location[2]}`}
           </span>
         </div>
         <div>
@@ -124,8 +125,12 @@ class JobCard1 extends React.Component {
           </span>
         </div>
       </div>
-    );
+    ) : null;
   }
 }
+
+JobCard1.propTypes = {
+  id: PropTypes.number.isRequired
+};
 
 export {JobCard1};

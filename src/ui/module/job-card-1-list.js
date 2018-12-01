@@ -1,38 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {JobCard1} from './job-card-1';
+import * as apiHelper from '../../tool/api-helper';
 
 class JobCard1List extends React.Component {
   constructor(props) {
     super(props);
     /*
     * */
-    // simulation data <= use `this.props.fetchURL` to fetch from backend
-    this.state = {
-      name: '互联网',
-      description: '描述：互联网',
-      list: [
-        {
-          key: 0,
-          jobID: 0,
-        },
-        {
-          key: 1,
-          jobID: 1,
-        },
-        {
-          key: 2,
-          jobID: 2,
-        },
-        {
-          key: 3,
-          jobID: 3,
-        }
-      ]
-    };
+    this.state = {};
+  }
+
+  componentWillMount() {
+    apiHelper.post(
+      'job',
+      this.props.search
+    ).then((receivedData) => {
+      this.setState(() => {
+        return receivedData;
+      });
+    });
   }
 
   render() {
-    return (
+    return this.state.searchResult ? (
       <div
         style={{
           padding: '24px 16px'
@@ -46,22 +38,7 @@ class JobCard1List extends React.Component {
           <span style={{
             fontSize: '24px'
           }}>
-            {this.state.name}
-          </span>
-        </div>
-        <div
-          style={{
-            marginBottom: '16px'
-          }}
-        >
-          <span
-            style={{
-              color: 'rgba(0,0,0,0.8)',
-              fontSize: '14px',
-              lineHeight: '22px'
-            }}
-          >
-            {this.state.description}
+            {this.props.name}
           </span>
         </div>
         <div
@@ -72,11 +49,11 @@ class JobCard1List extends React.Component {
           }}
         >
           {
-            this.state.list.map(
+            this.state.searchResult.map(
               item =>
                 <JobCard1
-                  key={item.key}
-                  jobID={item.jobID}
+                  key={item}
+                  id={item}
                 />
             )
           }
@@ -97,8 +74,13 @@ class JobCard1List extends React.Component {
           </div>
         </div>
       </div>
-    );
+    ) : null;
   }
 }
+
+JobCard1List.propTypes = {
+  name: PropTypes.string.isRequired,
+  search: PropTypes.object.isRequired
+};
 
 export {JobCard1List};
