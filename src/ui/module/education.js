@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {languageHelper} from '../../tool/language-helper';
+import * as apiHelper from '../../tool/api-helper';
 
 const i18n = [
   {
     education: '教育',
     major: '专业：',
-    addProject: '添加学校'
+    addExtracurricular: '添加学校'
   },
   {
     education: 'Education',
     major: 'Major in ',
-    addProject: 'Add School'
+    addExtracurricular: 'Add School'
   }
 ];
 
@@ -21,43 +22,23 @@ class Education extends React.Component {
     super(props);
     /*
     * */
-    // simulation data
-    this.state = {
-      list: [
-        {
-          id: 1,
-          degree: '硕士',
-          university: '乔治华盛顿大学',
-          major: '计算机科学',
-          location: '美国 华盛顿特区',
-          duration: {
-            begin: '2018年9月',
-            end: '2020年7月'
-          },
-          others: '（暂无）'
-        },
-        {
-          id: 2,
-          degree: '学士',
-          university: '同济大学',
-          major: '计算机科学与技术',
-          location: '中国 上海',
-          duration: {
-            begin: '2012年9月',
-            end: '2016年7月'
-          },
-          others: '（暂无）'
-        }
-      ]
-    };
+    this.state = {};
     /*
     * */
     this.text = i18n[languageHelper(this.props.language)];
   }
 
+  componentWillMount() {
+    apiHelper.get(
+      `applicant/${this.props.id}/education`
+    ).then((receivedData) => {
+      this.setState(receivedData);
+    });
+  }
+
   render() {
-    return (
-      <div 
+    return this.state.id ? (
+      <div
         style={{
           backgroundColor: '#fff',
           borderRadius: '3px',
@@ -67,7 +48,7 @@ class Education extends React.Component {
           marginBottom: '24px'
         }}
       >
-        <div 
+        <div
           style={{
             borderTopLeftRadius: '3px',
             borderTopRightRadius: '3px',
@@ -85,7 +66,7 @@ class Education extends React.Component {
           </p>
         </div>
         {
-          this.state.list.map(
+          this.state.education.map(
             item => (
               <div
                 key={item.id}
@@ -114,12 +95,12 @@ class Education extends React.Component {
                     flexGrow: 1
                   }}
                 >
-                  <div 
+                  <div
                     style={{
                       display: 'flex'
                     }}
                   >
-                    <div 
+                    <div
                       style={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -132,14 +113,34 @@ class Education extends React.Component {
                         fontWeight: 500,
                         marginBottom: '4.8px',
                         lineHeight: '1.33em'
-                      }}> {item.university}</p>
+                      }}>
+                        {(
+                          () => {
+                            if (typeof(item.university) === 'string') {
+                              return 'University ID';
+                            } else {
+                              return item.university[languageHelper(this.props.language)];
+                            }
+                          }
+                        )()}
+                      </p>
                       <p style={{
                         color: 'rgba(0,0,0,0.8)',
                         fontSize: '13px',
                         fontWeight: 500,
                         marginBottom: '9.1px',
                         lineHeight: '1.33em'
-                      }}> {item.degree}</p>
+                      }}>
+                        {(
+                          () => {
+                            if (typeof(item.degree) === 'string') {
+                              return 'University ID';
+                            } else {
+                              return item.degree[languageHelper(this.props.language)];
+                            }
+                          }
+                        )()}
+                      </p>
                     </div>
                     <div>
                       <button
@@ -168,7 +169,7 @@ class Education extends React.Component {
                       </button>
                     </div>
                   </div>
-                  <div 
+                  <div
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -189,7 +190,7 @@ class Education extends React.Component {
                       lineHeight: '1.33em'
                     }}>
                       <span style={{fontWeight: 'bold'}}>{this.text.major}</span>
-                      {item.major}
+                      {item.major[languageHelper(this.props.language)]}
                     </p>
                   </div>
                 </div>
@@ -197,7 +198,7 @@ class Education extends React.Component {
             )
           )
         }
-        <div 
+        <div
           style={{
             borderTop: '1px solid #e0e0e0',
             display: 'block',
@@ -218,16 +219,17 @@ class Education extends React.Component {
           padding: '8px',
           width: '100%'
         }}>
-          {this.text.addProject}
+          {this.text.addExtracurricular}
         </button>
       </div>
-    );
+    ) : null;
   }
 }
 
 Education.propTypes = {
   // react
-  language: PropTypes.string.isRequired
+  language: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 export {Education};

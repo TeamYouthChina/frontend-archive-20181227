@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {languageHelper} from '../../tool/language-helper';
+import * as apiHelper from '../../tool/api-helper';
 
 const i18n = [
   {
     project: '项目',
-    addProject: '添加项目'
+    addExtracurricular: '添加项目'
   },
   {
     project: 'Project',
-    addProject: 'Add Project'
+    addExtracurricular: 'Add Project'
   }
 ];
 
@@ -19,45 +20,22 @@ class Project extends React.Component {
     super(props);
     /*
     * */
-    // simulation data
-    this.state = {
-      list: [
-        {
-          id: 1,
-          name: '类 C 语言编译器',
-          location: '中国 上海',
-          role: '独立开发者',
-          duration: {
-            begin: '2015年7月',
-            end: '2015年9月'
-          },
-          links: [
-            'https://github.com/zzc-tongji/c-like-compiler',
-            'https://github.com/zzc-tongji/'
-          ],
-          others: '开发了一款编译器，能够将 C 语言转化为 x86-64 汇编语言（实现部分语言特性）。利用了 C++ 编程语言来构建项目。'
-        },
-        {
-          id: 2,
-          name: '基于安卓平台的图像加密系统',
-          location: '中国 上海',
-          role: '团队成员',
-          duration: {
-            begin: '2014年6月',
-            end: '2015年6月'
-          },
-          links: [],
-          others: '协助团队成员开发了一款 Android 应用。利用了傅立叶变换和斐波那契变换（使用 Java 实现）来加密和解密图片。'
-        }
-      ]
-    };
+    this.state = {};
     /*
     * */
     this.text = i18n[languageHelper(this.props.language)];
   }
 
+  componentWillMount() {
+    apiHelper.get(
+      `applicant/${this.props.id}/project`
+    ).then((receivedData) => {
+      this.setState(receivedData);
+    });
+  }
+
   render() {
-    return (
+    return this.state.id ? (
       <div
         style={{
           backgroundColor: '#fff',
@@ -68,14 +46,14 @@ class Project extends React.Component {
           marginBottom: '24px'
         }}
       >
-        <div 
+        <div
           style={{
             borderTopLeftRadius: '3px',
             borderTopRightRadius: '3px',
             padding: '16px',
           }}
         >
-          <p 
+          <p
             style={{
               color: 'rgba(0,0,0,0.8)',
               fontSize: '16px',
@@ -87,14 +65,14 @@ class Project extends React.Component {
             {this.text.project}
           </p>
         </div>
-        <div 
+        <div
           style={{
             display: 'flex',
             flexWrap: 'wrap'
           }}
         >
           {
-            this.state.list.map(
+            this.state.project.map(
               item => (
                 <div
                   key={item.id}
@@ -122,7 +100,7 @@ class Project extends React.Component {
                       padding: '10px'
                     }}
                   >
-                    <div 
+                    <div
                       style={{
                         display: 'flex'
                       }}
@@ -134,7 +112,7 @@ class Project extends React.Component {
                           flexGrow: 1
                         }}
                       >
-                        <p 
+                        <p
                           style={{
                             color: 'rgba(0,0,0,0.8)',
                             fontSize: '16px',
@@ -142,8 +120,8 @@ class Project extends React.Component {
                             marginBottom: '4.8px',
                             lineHeight: '1.33em'
                           }}
-                        > 
-                          {item.name}
+                        >
+                          {item.name[languageHelper(this.props.language)]}
                         </p>
                       </div>
                       <div>
@@ -156,7 +134,7 @@ class Project extends React.Component {
                       </div>
                     </div>
                     <div>
-                      <p 
+                      <p
                         style={{
                           color: 'rgba(0,0,0,0.8)',
                           fontSize: '13px',
@@ -164,11 +142,11 @@ class Project extends React.Component {
                           lineHeight: '1.33em'
                         }}
                       >
-                        {item.role}
+                        {item.role[languageHelper(this.props.language)]}
                       </p>
                     </div>
                     <div>
-                      <p 
+                      <p
                         style={{
                           color: 'rgba(0,0,0,0.8)',
                           fontSize: '13px',
@@ -180,7 +158,7 @@ class Project extends React.Component {
                       </p>
                     </div>
                     <div>
-                      <p 
+                      <p
                         style={{
                           color: 'rgba(0,0,0,0.8)',
                           fontSize: '13px',
@@ -188,7 +166,7 @@ class Project extends React.Component {
                           lineHeight: '1.33em'
                         }}
                       >
-                        {item.others}
+                        {item.note[languageHelper(this.props.language)]}
                       </p>
                     </div>
                   </div>
@@ -196,7 +174,7 @@ class Project extends React.Component {
               )
             )
           }
-          <div 
+          <div
             style={{
               border: '1px solid #e0e0e0',
               display: 'flex',
@@ -207,7 +185,7 @@ class Project extends React.Component {
               width: '219px'
             }}
           >
-            <button 
+            <button
               style={{
                 backgroundColor: 'transparent',
                 color: 'rgba(0,0,0,0.8)',
@@ -244,20 +222,21 @@ class Project extends React.Component {
                   marginLeft: '6px'
                 }}
               >
-                {this.text.addProject}
+                {this.text.addExtracurricular}
               </div>
 
             </button>
           </div>
         </div>
       </div>
-    );
+    ) : null;
   }
 }
 
 Project.propTypes = {
   // react
-  language: PropTypes.string.isRequired
+  language: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 export {Project};

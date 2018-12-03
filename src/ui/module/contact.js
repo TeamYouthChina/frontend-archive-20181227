@@ -1,5 +1,7 @@
 import React from 'react';
 import {languageHelper} from '../../tool/language-helper';
+import PropTypes from 'prop-types';
+import * as apiHelper from '../../tool/api-helper';
 
 const i18n = [
   {
@@ -10,7 +12,7 @@ const i18n = [
     edit: '编辑'
   },
   {
-    basic: 'Basic',
+    basic: 'Contact',
     email: 'Email:',
     phoneNumber: 'Phone Number:',
     location: 'Location',
@@ -18,25 +20,28 @@ const i18n = [
   }
 ];
 
-class Basic extends React.Component {
+class Contact extends React.Component {
   constructor(props) {
     super(props);
     /*
     * */
-    // simulation data
-    this.state = {
-      phoneNumber: '+86 123-456-7890',
-      email: 'example@youthchina.group',
-      location: '中国 上海'
-    };
+    this.state = {};
     /*
     * */
     this.text = i18n[languageHelper(this.props.language)];
   }
 
+  componentWillMount() {
+    apiHelper.get(
+      `applicant/${this.props.id}/contact`
+    ).then((receivedData) => {
+      this.setState(receivedData);
+    });
+  }
+
   render() {
-    return (
-      <div 
+    return this.state.id ? (
+      <div
         style={{
           backgroundColor: '#fff',
           borderRadius: '3px',
@@ -46,7 +51,7 @@ class Basic extends React.Component {
           marginBottom: '24px'
         }}
       >
-        <div 
+        <div
           style={{
             borderTopLeftRadius: '3px',
             borderTopRightRadius: '3px',
@@ -68,16 +73,26 @@ class Basic extends React.Component {
             padding: '0px 16px 16px 16px'
           }}
         >
-          <span>{this.text.phoneNumber}</span><span>{this.state.phoneNumber}</span>
+          <span>{this.text.phoneNumber}</span>
+          {this.state.phone.map(
+            (item, index) => (
+              <span key={index}>{item}</span>
+            )
+          )}
         </div>
         <div
           style={{
             padding: '0px 16px 16px 16px'
           }}
         >
-          <span>{this.text.email}</span><span>{this.state.email}</span>
+          <span>{this.text.email}</span>
+          {this.state.email.map(
+            (item, index) => (
+              <span key={index}>{item}</span>
+            )
+          )}
         </div>
-        <div 
+        <div
           style={{
             borderTop: '1px solid #e0e0e0',
             display: 'block',
@@ -101,8 +116,13 @@ class Basic extends React.Component {
           {this.text.edit}
         </button>
       </div>
-    );
+    ) : null;
   }
 }
 
-export {Basic};
+Contact.propTypes = {
+  language: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
+};
+
+export {Contact};

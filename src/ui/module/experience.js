@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {languageHelper} from '../../tool/language-helper';
+import * as apiHelper from '../../tool/api-helper';
 
 const i18n = [
   {
@@ -19,41 +20,23 @@ class Experience extends React.Component {
     super(props);
     /*
     * */
-    // simulation data
-    this.state = {
-      list: [
-        {
-          id: 1,
-          employer: '百度',
-          location: '中国 上海',
-          position: '软件工程师',
-          duration: {
-            begin: '2016年7月',
-            end: '2017年6月'
-          },
-          others: '（暂无）'
-        },
-        {
-          id: 2,
-          employer: '阿里巴巴',
-          location: '中国 上海',
-          position: '软件工程师',
-          duration: {
-            begin: '2017年7月',
-            end: '2018年6月'
-          },
-          others: '（暂无）'
-        }
-      ]
-    };
+    this.state = {};
     /*
     * */
     this.text = i18n[languageHelper(this.props.language)];
   }
 
+  componentWillMount() {
+    apiHelper.get(
+      `applicant/${this.props.id}/experience`
+    ).then((receivedData) => {
+      this.setState(receivedData);
+    });
+  }
+
   render() {
-    return (
-      <div 
+    return this.state.id ? (
+      <div
         style={{
           backgroundColor: '#fff',
           borderRadius: '3px',
@@ -63,7 +46,7 @@ class Experience extends React.Component {
           marginBottom: '24px'
         }}
       >
-        <div 
+        <div
           style={{
             borderTopLeftRadius: '3px',
             borderTopRightRadius: '3px',
@@ -81,7 +64,7 @@ class Experience extends React.Component {
           </p>
         </div>
         {
-          this.state.list.map(
+          this.state.experience.map(
             item => (
               <div
                 key={item.id}
@@ -103,14 +86,14 @@ class Experience extends React.Component {
                     height={54}
                   />
                 </div>
-                <div 
+                <div
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
                     flexGrow: 1
                   }}
                 >
-                  <div 
+                  <div
                     style={{
                       display: 'flex'
                     }}
@@ -127,14 +110,18 @@ class Experience extends React.Component {
                         fontWeight: 500,
                         marginBottom: '4.8px',
                         lineHeight: '1.33em'
-                      }}> {item.position}</p>
+                      }}>
+                        {item.position[languageHelper(this.props.language)]}
+                      </p>
                       <p style={{
                         color: 'rgba(0,0,0,0.8)',
                         fontSize: '13px',
                         fontWeight: 500,
                         marginBottom: '9.1px',
                         lineHeight: '1.33em'
-                      }}> {item.employer}</p>
+                      }}>
+                        {item.employer[languageHelper(this.props.language)]}
+                      </p>
                     </div>
                     <div>
                       <button
@@ -175,7 +162,16 @@ class Experience extends React.Component {
                       marginBottom: '9.1px',
                       lineHeight: '1.33em'
                     }}>
-                      {item.duration.begin + ' - ' + item.duration.end + ' | ' + item.location}
+                      {`${item.duration.begin} - ${item.duration.end} | `}
+                      {(
+                        () => {
+                          if (typeof(item.location) === 'string') {
+                            return 'Location ID';
+                          } else {
+                            return item.location[languageHelper(this.props.language)];
+                          }
+                        }
+                      )()}
                     </p>
                     <p style={{
                       color: 'rgba(0,0,0,0.8)',
@@ -183,7 +179,7 @@ class Experience extends React.Component {
                       marginBottom: '9.1px',
                       lineHeight: '1.33em'
                     }}>
-                      {item.others}
+                      {item.note[languageHelper(this.props.language)]}
                     </p>
                   </div>
                 </div>
@@ -191,7 +187,7 @@ class Experience extends React.Component {
             )
           )
         }
-        <div 
+        <div
           style={{
             borderTop: '1px solid #e0e0e0',
             display: 'block',
@@ -215,13 +211,14 @@ class Experience extends React.Component {
           {this.text.addSkill}
         </button>
       </div>
-    );
+    ) : null;
   }
 }
 
 Experience.propTypes = {
   // react
-  language: PropTypes.string.isRequired
+  language: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 export {Experience};

@@ -12,7 +12,7 @@ class JobCard1 extends React.Component {
 
   componentWillMount() {
     apiHelper.get(
-      `job/${this.props.id}?detail=1`
+      `job/${this.props.id}?detailLevel=1`
     ).then((receivedData) => {
       this.setState(receivedData);
     });

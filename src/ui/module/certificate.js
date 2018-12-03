@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {languageHelper} from '../../tool/language-helper';
+import * as apiHelper from '../../tool/api-helper';
 
 const i18n = [
   {
@@ -9,51 +10,33 @@ const i18n = [
     addCertificate: '添加证书'
   },
   {
-    certification: 'Certification',
-    addCertificate: 'Add Certification'
+    certification: 'Certificate',
+    addCertificate: 'Add Certificate'
   }
 ];
 
-class Certification extends React.Component {
+class Certificate extends React.Component {
   constructor(props) {
     super(props);
     /*
     * */
-    // simulation data
-    this.state = {
-      list: [
-        {
-          id: 1,
-          name: '一级注册结构工程师',
-          number: '12345',
-          authority: '中华人民共和国住房与城乡建设部',
-          duration: {
-            begin: '2016年9月',
-            end: '2036年9月'
-          },
-          others: ''
-        },
-        {
-          id: 2,
-          name: '注册会计师',
-          number: '67890',
-          authority: '中国注册会计师协会',
-          duration: {
-            begin: '2017年9月',
-            end: '2027年9月'
-          },
-          others: ''
-        }
-      ]
-    };
+    this.state = {};
     /*
     * */
     this.text = i18n[languageHelper(this.props.language)];
   }
 
+  componentWillMount() {
+    apiHelper.get(
+      `applicant/${this.props.id}/certificate`
+    ).then((receivedData) => {
+      this.setState(receivedData);
+    });
+  }
+
   render() {
-    return (
-      <div 
+    return this.state.id ? (
+      <div
         style={{
           backgroundColor: '#fff',
           borderRadius: '3px',
@@ -63,14 +46,14 @@ class Certification extends React.Component {
           marginBottom: '24px'
         }}
       >
-        <div 
+        <div
           style={{
             borderTopLeftRadius: '3px',
             borderTopRightRadius: '3px',
             padding: '16px',
           }}
         >
-          <p 
+          <p
             style={{
               color: 'rgba(0,0,0,0.8)',
               fontSize: '16px',
@@ -83,7 +66,7 @@ class Certification extends React.Component {
           </p>
         </div>
         {
-          this.state.list.map(
+          this.state.certificate.map(
             item => (
               <div
                 key={item.id}
@@ -92,7 +75,7 @@ class Certification extends React.Component {
                   padding: '0px 16px 16px 16px'
                 }}
               >
-                <div 
+                <div
                   style={{
                     display: 'flex',
                     marginRight: '16px'
@@ -130,8 +113,8 @@ class Certification extends React.Component {
                         fontWeight: 500,
                         marginBottom: '4.8px',
                         lineHeight: '1.33em'
-                      }}> {item.name}</p>
-                      <p 
+                      }}> {item.name[languageHelper(this.props.language)]}</p>
+                      <p
                         style={{
                           color: 'rgba(0,0,0,0.8)',
                           fontSize: '13px',
@@ -139,7 +122,7 @@ class Certification extends React.Component {
                           marginBottom: '9.1px',
                           lineHeight: '1.33em'
                         }}
-                      > 
+                      >
                         {item.number}
                       </p>
                     </div>
@@ -170,13 +153,13 @@ class Certification extends React.Component {
                       </button>
                     </div>
                   </div>
-                  <div 
+                  <div
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
                     }}
                   >
-                    <p 
+                    <p
                       style={{
                         color: 'rgba(0,0,0,0.8)',
                         fontSize: '13px',
@@ -192,7 +175,7 @@ class Certification extends React.Component {
                       marginBottom: '9.1px',
                       lineHeight: '1.33em'
                     }}>
-                      {item.authority}
+                      {item.authority[languageHelper(this.props.language)]}
                     </p>
                   </div>
                 </div>
@@ -200,7 +183,7 @@ class Certification extends React.Component {
             )
           )
         }
-        <div 
+        <div
           style={{
             borderTop: '1px solid #e0e0e0',
             display: 'block',
@@ -224,13 +207,13 @@ class Certification extends React.Component {
           {this.text.addCertificate}
         </button>
       </div>
-    );
+    ) : null;
   }
 }
 
-Certification.propTypes = {
+Certificate.propTypes = {
   // react
   language: PropTypes.string.isRequired
 };
 
-export {Certification};
+export {Certificate};

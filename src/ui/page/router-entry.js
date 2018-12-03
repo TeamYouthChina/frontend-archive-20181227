@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import {Home} from './home';
 import {Login} from './login';
-import {People} from './people';
+import {Applicant} from './applicant';
 import {Organization} from './organization';
 import {Job} from './job';
 import {PageNoFound} from './page-no-found';
@@ -24,8 +24,8 @@ const RouterEntryReact = (props) => {
         component={routeProps => <Login {...routeProps} language={props.language}/>}
       />
       <Route
-        path="/people/:id"
-        component={routeProps => <People {...routeProps} language={props.language}/>}
+        path="/applicant/:id"
+        component={routeProps => <Applicant {...routeProps} language={props.language}/>}
       />
       <Route
         path="/organization/:id"

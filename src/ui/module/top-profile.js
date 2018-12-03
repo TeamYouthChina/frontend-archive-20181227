@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {languageHelper} from '../../tool/language-helper';
+import * as apiHelper from '../../tool/api-helper';
 
 const i18n = [
   {
     education: '教育',
     major: '专业：',
-    addProject: '添加学校'
+    addExtracurricular: '添加学校'
   },
   {
     education: 'Education',
     major: 'Major in ',
-    addProject: 'Add School'
+    addExtracurricular: 'Add School'
   }
 ];
 
@@ -28,8 +29,16 @@ class TopProfile extends React.Component {
     this.text = i18n[languageHelper(this.props.language)];
   }
 
+  componentWillMount() {
+    apiHelper.get(
+      `applicant/${this.props.id}`
+    ).then((receivedData) => {
+      this.setState(receivedData);
+    });
+  }
+
   render() {
-    return (
+    return this.state.id ? (
       <div
         style={{
           backgroundColor: '#fff',
@@ -68,7 +77,7 @@ class TopProfile extends React.Component {
             }}
           >
             <img
-              src="https://www.burns-360.com/wp-content/uploads/2018/09/Sample-Icon.png"
+              src={this.state.avatarUrl}
               alt=""
               width={145}
               height={145}
@@ -87,17 +96,18 @@ class TopProfile extends React.Component {
               lineHeight: 'normal'
             }}
           >
-            Zhicheng Zhang
+            {this.state.name}
           </div>
         </div>
       </div>
-    );
+    ) : null;
   }
 }
 
 TopProfile.propTypes = {
   // react
-  language: PropTypes.string.isRequired
+  language: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 export {TopProfile};

@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {languageHelper} from '../../tool/language-helper';
+import * as apiHelper from '../../tool/api-helper';
 
 const i18n = [
   {
     project: '社团和组织经历',
-    addProject: '添加学校'
+    addExtracurricular: '添加组织经历'
   },
   {
     project: 'Organization / Extracurricular',
-    addProject: 'Add Organization / Extracurricular'
+    addExtracurricular: 'Add Organization / Extracurricular'
   }
 ];
 
@@ -20,39 +21,22 @@ class Extracurricular extends React.Component {
     /*
     * */
     // simulation data
-    this.state = {
-      list: [
-        {
-          id: 1,
-          role: '志愿者',
-          organization: '2015年上海国际马拉松赛',
-          location: '中国 上海',
-          duration: {
-            begin: '2015年11月',
-            end: '2015年11月'
-          },
-          others: '（暂无）'
-        },
-        {
-          id: 2,
-          role: '志愿者',
-          organization: '2014年上海国际马拉松赛',
-          location: '中国 上海',
-          duration: {
-            begin: '2014年11月',
-            end: '2014年11月'
-          },
-          others: '（暂无）'
-        }
-      ]
-    };
+    this.state = {};
     /*
     * */
     this.text = i18n[languageHelper(this.props.language)];
   }
 
+  componentWillMount() {
+    apiHelper.get(
+      `applicant/${this.props.id}/extracurricular`
+    ).then((receivedData) => {
+      this.setState(receivedData);
+    });
+  }
+  
   render() {
-    return (
+    return this.state.id ? (
       <div
         style={{
           backgroundColor: '#fff',
@@ -81,7 +65,7 @@ class Extracurricular extends React.Component {
           </p>
         </div>
         {
-          this.state.list.map(
+          this.state.extracurricular.map(
             item => (
               <div
                 key={item.id}
@@ -103,14 +87,14 @@ class Extracurricular extends React.Component {
                     height={54}
                   />
                 </div>
-                <div 
+                <div
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
                     flexGrow: 1
                   }}
                 >
-                  <div 
+                  <div
                     style={{
                       display: 'flex'
                     }}
@@ -127,14 +111,14 @@ class Extracurricular extends React.Component {
                         fontWeight: 500,
                         marginBottom: '4.8px',
                         lineHeight: '1.33em'
-                      }}> {item.role}</p>
+                      }}> {item.role[languageHelper(this.props.language)]}</p>
                       <p style={{
                         color: 'rgba(0,0,0,0.8)',
                         fontSize: '13px',
                         fontWeight: 500,
                         marginBottom: '9.1px',
                         lineHeight: '1.33em'
-                      }}> {item.organization}</p>
+                      }}> {item.organization[languageHelper(this.props.language)]}</p>
                     </div>
                     <div>
                       <button
@@ -163,7 +147,7 @@ class Extracurricular extends React.Component {
                       </button>
                     </div>
                   </div>
-                  <div 
+                  <div
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -183,7 +167,7 @@ class Extracurricular extends React.Component {
             )
           )
         }
-        <div 
+        <div
           style={{
             borderTop: '1px solid #e0e0e0',
             display: 'block',
@@ -204,10 +188,10 @@ class Extracurricular extends React.Component {
           padding: '8px',
           width: '100%'
         }}>
-          {this.text.addProject}
+          {this.text.addExtracurricular}
         </button>
       </div>
-    );
+    ) : null;
   }
 }
 
