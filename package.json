@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^3.10.8",
     "isomorphic-fetch": "^2.2.1",
+    "mdbreact": "./mdbreact-4.8.5.tgz",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",

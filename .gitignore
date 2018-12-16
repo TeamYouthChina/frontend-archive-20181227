@@ -58,7 +58,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -215,4 +216,4 @@ typings/
 .next
 
 # [.gitignore]
-
+mdbreact-4.8.5.tgz
