@@ -4,11 +4,7 @@ import {BrowserRouter} from 'react-router-dom';
 
 import {store} from './data/store';
 import {RouterEntry} from './ui/page/router-entry';
-
-import 'antd/dist/antd.css';
-import 'font-awesome/css/font-awesome.min.css';
-import 'bootstrap-css-only/css/bootstrap.min.css';
-import 'mdbreact/dist/css/mdb.css';
+import 'antd/dist/antd.css'; // It provides basic style of <body>.
 
 const App = () => {
   return (
