@@ -1,61 +1,61 @@
 import React from 'react';
-import { Menu, Icon ,Button} from 'antd';
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
-
+import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Container, Mask, View} from 'mdbreact';
+import { BrowserRouter as Router } from 'react-router-dom';
 class TopBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state={current:'mail'};
+    this.state = {
+      collapse: false,
+      isWideEnough: false
+    };
+    this.onClick = this.onClick.bind(this);
   }
-  handleClick = (e) => {
-    console.log('click ', e);
+  onClick(){
     this.setState({
-      current: e.key,
+      collapse: !this.state.collapse
     });
   }
   render() {
     return (
       <div>
-        <Menu
-          onClick={this.handleClick}
-         // selectedKeys={[this.state.current]}
-          mode="horizontal"
-          gutter={48}
-        >
-       
-          <Menu.Item key="mail">
-            <Icon type="mail" />YouthChina
-          </Menu.Item>
-          <Menu.Item >
-            <Button target="" type="dashed" icon="search">Search</Button>
-         
-            <Button type="primary" shape="circle" icon="search" />
-            
-          </Menu.Item>
-          <Menu.Item key="app" >
-            <Icon type="appstore" />为你精选
-          </Menu.Item>
-          <SubMenu title={<span className="submenu-title-wrapper">招聘</span>}>
-            <MenuItemGroup title="Item 1">
-              <Menu.Item key="setting:1">Option 1</Menu.Item>
-              <Menu.Item key="setting:2">Option 2</Menu.Item>
-            </MenuItemGroup>
-            <MenuItemGroup title="Item 2">
-              <Menu.Item key="setting:3">Option 3</Menu.Item>
-              <Menu.Item key="setting:4">Option 4</Menu.Item>
-            </MenuItemGroup>
-          </SubMenu>
-          <Menu.Item key="alipay">
-            <a href="" target="_blank" rel="noopener noreferrer">企业Live</a>
-          </Menu.Item>
-          <Menu.Item key="squre">
-            <a href="" target="_blank" rel="noopener noreferrer">青年社区</a>
-          </Menu.Item>
-        </Menu>
-        
-      </div
-       >
+        <header>
+          <Router>
+            <Navbar color="indigo" dark expand="md" scrolling>
+              <NavbarBrand href="/">
+                <strong>Navbar</strong>
+              </NavbarBrand>
+              { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
+              <Collapse isOpen = { this.state.collapse } navbar>
+                <NavbarNav left>
+                  <NavItem active>
+                    <NavLink to="#">Home</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink to="#">Link</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink to="#">Profile</NavLink>
+                  </NavItem>
+                </NavbarNav>
+              </Collapse>
+            </Navbar>
+          </Router>
+
+          <View src="https://mdbootstrap.com/img/Photos/Others/img%20(50).jpg">
+            <Mask overlay="black-light" style={{flexDirection: 'column', height: '100vh'}} className="flex-center  text-white text-center">
+              <h2>This Navbar is fixed</h2>
+              <h5>It will always stay visible on the top, even when you scroll down</h5>
+              <br/>
+              <p>Full page intro with background image will be always displayed in full screen mode, regardless of device </p>
+            </Mask>
+          </View>
+        </header>
+        <main>
+          <Container className="text-center my-5">
+            <p align="justify">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </Container>
+        </main>
+      </div>
     );
   }
 }
