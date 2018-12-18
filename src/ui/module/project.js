@@ -23,7 +23,7 @@ class Project extends React.Component {
     this.state = {};
     /*
     * */
-    this.text = i18n[languageHelper(this.props.language)];
+    this.text = i18n[languageHelper()];
   }
 
   componentWillMount() {
@@ -235,7 +235,6 @@ class Project extends React.Component {
 
 Project.propTypes = {
   // react
-  language: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired
 };
 

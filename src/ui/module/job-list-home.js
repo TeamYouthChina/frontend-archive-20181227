@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {JobCard1} from './job-card-1';
-import * as apiHelper from '../../tool/api-helper';
+import {Col, Row} from 'mdbreact';
+import {JobCardSquare} from './job-card-square';
 
-class JobCard1List extends React.Component {
+class JobListHome extends React.Component {
   constructor(props) {
     super(props);
     /*
@@ -13,18 +13,20 @@ class JobCard1List extends React.Component {
   }
 
   componentWillMount() {
-    apiHelper.post(
-      'job',
-      this.props.search
-    ).then((receivedData) => {
-      this.setState(() => {
-        return receivedData;
-      });
+    let mockData =
+      {
+        searchResult: ['1', '2', '3', '4'],
+        status: {
+          code: 2000
+        }
+      };
+    this.setState(() => {
+      return {backend: mockData};
     });
   }
 
   render() {
-    return this.state.searchResult ? (
+    return (this.state.backend && this.state.backend.status && this.state.backend.status.code === 2000) ? (
       <div
         style={{
           padding: '24px 16px'
@@ -41,23 +43,20 @@ class JobCard1List extends React.Component {
             {this.props.name}
           </span>
         </div>
-        <div
-          style={{
-            display: 'flex',
-            marginBottom: '16px',
-            justifyContent: 'space-between'
-          }}
-        >
+        <Row>
           {
-            this.state.searchResult.map(
-              item =>
-                <JobCard1
-                  key={item}
-                  id={item}
-                />
+            this.state.backend.searchResult.map(
+              (item, index) =>
+                <Col
+                  key={index}
+                >
+                  <JobCardSquare
+                    id={item}
+                  />
+                </Col>
             )
           }
-        </div>
+        </Row>
         <div>
           <div>
             <a
@@ -78,9 +77,9 @@ class JobCard1List extends React.Component {
   }
 }
 
-JobCard1List.propTypes = {
+JobListHome.propTypes = {
   name: PropTypes.string.isRequired,
   search: PropTypes.object.isRequired
 };
 
-export {JobCard1List};
+export {JobListHome};

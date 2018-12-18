@@ -24,7 +24,7 @@ class Extracurricular extends React.Component {
     this.state = {};
     /*
     * */
-    this.text = i18n[languageHelper(this.props.language)];
+    this.text = i18n[languageHelper()];
   }
 
   componentWillMount() {
@@ -34,7 +34,7 @@ class Extracurricular extends React.Component {
       this.setState(receivedData);
     });
   }
-  
+
   render() {
     return this.state.id ? (
       <div
@@ -197,7 +197,7 @@ class Extracurricular extends React.Component {
 
 Extracurricular.propTypes = {
   // react
-  language: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired
 };
 
 export {Extracurricular};

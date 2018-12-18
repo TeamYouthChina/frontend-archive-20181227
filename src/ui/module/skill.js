@@ -94,12 +94,12 @@ class Skill extends React.Component {
     };
     /*
     * */
-    this.text = i18n[languageHelper(this.props.language)];
+    this.text = i18n[languageHelper()];
   }
 
   render() {
     return (
-      <div 
+      <div
         style={{
           backgroundColor: '#fff',
           borderRadius: '3px',
@@ -109,7 +109,7 @@ class Skill extends React.Component {
           marginBottom: '24px'
         }}
       >
-        <div 
+        <div
           style={{
             borderTopLeftRadius: '3px',
             borderTopRightRadius: '3px',
@@ -126,7 +126,7 @@ class Skill extends React.Component {
             {this.text.skill}
           </p>
         </div>
-        <div 
+        <div
           style={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -192,7 +192,7 @@ class Skill extends React.Component {
 
 Skill.propTypes = {
   // react
-  language: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired
 };
 
 export {Skill};

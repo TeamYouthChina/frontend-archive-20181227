@@ -32,7 +32,7 @@ const generateHeaders = () => {
   return headers;
 };
 
-const get = (urlSuffix) => {
+export const get = (urlSuffix) => {
   return fetch(
     `${urlPrefix}${urlSuffix}`,
     {
@@ -44,7 +44,7 @@ const get = (urlSuffix) => {
   });
 };
 
-const post = (urlSuffix, requestBody) => {
+export const post = (urlSuffix, requestBody) => {
   return fetch(
     `${urlPrefix}${urlSuffix}`,
     {
@@ -56,5 +56,3 @@ const post = (urlSuffix, requestBody) => {
     return response.json();
   });
 };
-
-export {get, post};

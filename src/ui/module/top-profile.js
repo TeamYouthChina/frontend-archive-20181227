@@ -26,7 +26,7 @@ class TopProfile extends React.Component {
     this.state = {};
     /*
     * */
-    this.text = i18n[languageHelper(this.props.language)];
+    this.text = i18n[languageHelper()];
   }
 
   componentWillMount() {
@@ -106,7 +106,6 @@ class TopProfile extends React.Component {
 
 TopProfile.propTypes = {
   // react
-  language: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired
 };
 
