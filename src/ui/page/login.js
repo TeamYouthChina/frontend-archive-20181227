@@ -42,20 +42,19 @@ class Login extends React.Component {
 
   render() {
     return (
-     
-     
-      
+
+
       <MDBContainer>
-      <MDBRow>
-        <TopBar></TopBar>
-      </MDBRow>
+        <MDBRow>
+          <TopBar></TopBar>
+        </MDBRow>
         <MDBRow center>
           <MDBCol md="6">
             <MDBCard>
               <MDBCardBody>
                 <MDBCardHeader className="form-header deep-blue-gradient rounded">
                   <h3 className="my-3">
-                    <MDBIcon icon="lock" /> Login:
+                    <MDBIcon icon="lock"/> Login:
                   </h3>
                 </MDBCardHeader>
                 <form>
@@ -99,7 +98,7 @@ class Login extends React.Component {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-    
+
     );
   }
 }
