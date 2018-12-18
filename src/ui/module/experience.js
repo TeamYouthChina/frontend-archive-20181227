@@ -23,7 +23,7 @@ class Experience extends React.Component {
     this.state = {};
     /*
     * */
-    this.text = i18n[languageHelper(this.props.language)];
+    this.text = i18n[languageHelper()];
   }
 
   componentWillMount() {
@@ -217,7 +217,6 @@ class Experience extends React.Component {
 
 Experience.propTypes = {
   // react
-  language: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired
 };
 

@@ -9,7 +9,7 @@ class Help extends React.Component {
   render() {
     return (
       <div>
-        <Questions language={this.props.language}/>
+        <Questions/>
       </div>
     );
   }

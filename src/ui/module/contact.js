@@ -28,7 +28,7 @@ class Contact extends React.Component {
     this.state = {};
     /*
     * */
-    this.text = i18n[languageHelper(this.props.language)];
+    this.text = i18n[languageHelper()];
   }
 
   componentWillMount() {
@@ -121,7 +121,6 @@ class Contact extends React.Component {
 }
 
 Contact.propTypes = {
-  language: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired
 };
 

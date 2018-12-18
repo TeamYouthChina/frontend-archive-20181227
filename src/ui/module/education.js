@@ -25,7 +25,7 @@ class Education extends React.Component {
     this.state = {};
     /*
     * */
-    this.text = i18n[languageHelper(this.props.language)];
+    this.text = i18n[languageHelper()];
   }
 
   componentWillMount() {
@@ -228,7 +228,6 @@ class Education extends React.Component {
 
 Education.propTypes = {
   // react
-  language: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired
 };
 

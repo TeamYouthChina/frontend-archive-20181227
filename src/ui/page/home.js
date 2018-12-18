@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {languageHelper} from '../../tool/language-helper';
-import {JobCard1List} from '../module/job-card-1-list';
+import {JobListHome} from '../module/job-list-home';
 import {TopBar} from '../module/top-bar';
 
 /* route: '/' */
@@ -47,7 +47,7 @@ class Home extends React.Component {
     };
     /*
     * */
-    this.text = i18n[languageHelper(this.props.language)];
+    this.text = i18n[languageHelper()];
   }
 
   render() {
@@ -123,7 +123,7 @@ class Home extends React.Component {
               }
               return (
                 <div>
-                  <JobCard1List
+                  <JobListHome
                     name={this.text.it}
                     search={{
                       industry: 'IT',
@@ -135,7 +135,7 @@ class Home extends React.Component {
                       skipAuth: true
                     }}
                   />
-                  <JobCard1List
+                  <JobListHome
                     name={this.text.finance}
                     search={{
                       industry: 'finance',

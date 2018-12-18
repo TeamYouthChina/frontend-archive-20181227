@@ -28,7 +28,7 @@ class Applicant extends React.Component {
           backgroundColor: '#f7f7f7'
         }}
       >
-        <TopBar language={this.props.language}/>
+        <TopBar/>
         <div
           style={{
             marginTop: '55px',
@@ -44,7 +44,7 @@ class Applicant extends React.Component {
             }}
           >
             <div>
-              <TopProfile language={this.props.language} id={this.props.match.params.id}/>
+              <TopProfile id={this.props.match.params.id}/>
             </div>
             <div
               style={{
@@ -52,13 +52,13 @@ class Applicant extends React.Component {
                 flexDirection: 'column',
               }}
             >
-              <Contact language={this.props.language} id={this.props.match.params.id}/>
-              <Education language={this.props.language} id={this.props.match.params.id}/>
-              <Experience language={this.props.language} id={this.props.match.params.id}/>
-              <Certificate language={this.props.language} id={this.props.match.params.id}/>
-              <Extracurricular language={this.props.language} id={this.props.match.params.id}/>
-              <Project language={this.props.language} id={this.props.match.params.id}/>
-              <Skill language={this.props.language} id={this.props.match.params.id}/>
+              <Contact id={this.props.match.params.id}/>
+              <Education id={this.props.match.params.id}/>
+              <Experience id={this.props.match.params.id}/>
+              <Certificate id={this.props.match.params.id}/>
+              <Extracurricular id={this.props.match.params.id}/>
+              <Project id={this.props.match.params.id}/>
+              <Skill id={this.props.match.params.id}/>
             </div>
           </div>
         </div>
@@ -71,9 +71,7 @@ Applicant.propTypes = {
   // route
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired,
-  // react
-  language: PropTypes.string.isRequired
+  match: PropTypes.object.isRequired
 };
 
 export {Applicant};
