@@ -16,6 +16,11 @@ import {Job} from './ui/page/job';
 import {Search} from './ui/page/search';
 import {Help} from './ui/page/help';
 import {PageNoFound} from './ui/page/page-no-found';
+import {Discovery} from './ui/page/discovery';
+import {QuestionAndAnswer} from './ui/page/question-and-answer';
+import {Article} from './ui/page/article';
+import {QuestionEditor} from './ui/page/question-editor';
+import {ArticleEditor} from './ui/page/article-editor';
 
 const App = () => {
   return (
@@ -49,6 +54,26 @@ const App = () => {
           <Route
             path="/help"
             component={routeProps => <Help {...routeProps} />}
+          />
+          <Route
+            path="/discovery"
+            component={routeProps => <Discovery {...routeProps} />}
+          />
+          <Route
+            path="/question"
+            component={routeProps => <QuestionAndAnswer {...routeProps} />}
+          />
+          <Route
+            path="/question-editor"
+            component={routeProps => <QuestionEditor {...routeProps} />}
+          />
+          <Route
+            path="/article"
+            component={routeProps => <Article {...routeProps} />}
+          />
+          <Route
+            path="/article-editor"
+            component={routeProps => <ArticleEditor {...routeProps} />}
           />
           <Route
             component={routeProps => <PageNoFound {...routeProps} />}
