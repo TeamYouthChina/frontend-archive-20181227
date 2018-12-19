@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, Mask, View,Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, Fa,Col, MDBDropdownItem} from 'mdbreact';
+
 import { BrowserRouter as Router } from 'react-router-dom';
 class TopBar extends React.Component {
   constructor(props) {
@@ -9,10 +11,12 @@ class TopBar extends React.Component {
       isWideEnough: false
     };
     this.onClick = this.onClick.bind(this);
+    
     this.toggle = this.toggle.bind(this);
     this.state = {
       collapse: false,
     };
+    
   }
   onClick(){
     this.setState({
@@ -148,6 +152,7 @@ class TopBar extends React.Component {
             <Mask overlay="black-light" style={{flexDirection: 'column', height: '100vh'}} className="flex-center  text-white text-center">
               <h2>YouthChina</h2>
               <h5>欢迎，这是一句话</h5>
+  
               <br/>
               <p>Full page intro with background image will be always displayed in full screen mode, regardless of device </p>
             </Mask>
@@ -156,6 +161,7 @@ class TopBar extends React.Component {
          
         </header>
         
+  
       </div>
     );
   }
