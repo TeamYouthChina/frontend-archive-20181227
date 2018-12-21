@@ -17,10 +17,11 @@ import {Search} from './ui/page/search';
 import {Help} from './ui/page/help';
 import {PageNoFound} from './ui/page/page-no-found';
 import {Discovery} from './ui/page/discovery';
-import {QuestionAndAnswer} from './ui/page/question-and-answer';
-import {Article} from './ui/page/article';
-import {QuestionEditor} from './ui/page/question-editor';
-import {ArticleEditor} from './ui/page/article-editor';
+import {QuestionAndAnswer} from './ui/page/question/question-and-answer';
+import {Article} from './ui/page/article/article';
+import {QuestionEditor} from './ui/page/question/question-editor';
+import {ArticleEditor} from './ui/page/article/article-editor';
+import Question from './ui/page/question';
 
 const App = () => {
   return (
@@ -61,7 +62,11 @@ const App = () => {
               component={routeProps => <Discovery {...routeProps} />}
             />
             <Route
-              path="/question"
+              path="/question" exact
+              component={routeProps => <Question {...routeProps} />}
+            />
+            <Route
+              path="/question/:id"
               component={routeProps => <QuestionAndAnswer {...routeProps} />}
             />
             <Route

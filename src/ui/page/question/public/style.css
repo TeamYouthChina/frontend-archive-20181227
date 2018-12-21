@@ -1,0 +1,16 @@
+.tabs-cyan {
+  background-color: #fff!important
+  
+}
+.classic-tabs .nav li a.active {
+  color: #666!important
+}
+.classic-tabs .nav li a:not(.active) {
+  color: #259
+}
+.classic-tabs .nav li:first-child {
+  margin-left: 0px;
+}
+.anticon {
+  vertical-align: 0.08em;
+}
