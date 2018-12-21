@@ -3,7 +3,7 @@ import React from 'react';
 import {languageHelper} from '../../tool/language-helper';
 import {JobListHome} from '../module/job-list-home';
 import {TopBar} from '../module/top-bar';
-
+import {FooterPage} from '../module/foot';
 /* route: '/' */
 
 const i18n = [
@@ -152,6 +152,7 @@ class Home extends React.Component {
             })()}
           </div>
         </div>
+        <FooterPage/>
       </div>
     );
   }
