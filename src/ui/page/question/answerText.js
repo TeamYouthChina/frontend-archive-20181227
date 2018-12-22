@@ -43,7 +43,7 @@ export class AnswerText extends React.Component {
     const {editorState, outputHTML} = this.state;
     const style = {};
     return (
-      <div className="editor-wrapper">
+      <div className="editor-wrapper" style={{height: '300px'}}>
         <BraftEditor
           value={editorState}
           onChange={this.handleEditorChange}
