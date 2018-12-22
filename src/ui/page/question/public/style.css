@@ -128,7 +128,14 @@ ul.ant-comment-actions {
 .ant-card-body{
   padding: 0px;
 }
-
+.bf-content {
+  height: 200px;
+}
+.bf-container{
+  border: 1px solid #EBEBEB;
+  border-radius: 3px;
+  height: 400px;
+}
 
 
 
