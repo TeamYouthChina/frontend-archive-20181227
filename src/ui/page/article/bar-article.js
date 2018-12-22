@@ -46,7 +46,7 @@ export class BarArticle extends React.Component {
               <NavLink to="/" onClick={this.toggle}>关注</NavLink>
             </NavItem>
             <NavItem to="/">
-              <NavLink to="/" onClick={this.toggle}>发表文章</NavLink>
+              <NavLink to="/article-editor" onClick={this.toggle}>发表文章</NavLink>
             </NavItem>
           </NavbarNav>
         </Col>
@@ -75,11 +75,6 @@ export class BarArticle extends React.Component {
             </Dropdown>
           </NavItem>
         </NavbarNav>
-        
-
-
-        
-
       </Navbar>
     );
   }
