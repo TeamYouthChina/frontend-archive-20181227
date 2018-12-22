@@ -34,6 +34,7 @@ class TopBar extends React.Component {
 
      
           <Router>
+            
             <Navbar color="indigo darken-1" dark expand="md" fixed="top" scrolling transparent>
               <Col md="1">
                 <NavbarBrand href="/">
@@ -139,6 +140,7 @@ class TopBar extends React.Component {
                 </NavbarNav>
               </Collapse>
             </Navbar>
+     
           </Router>
           
           <View>

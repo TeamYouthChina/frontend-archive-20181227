@@ -35,10 +35,7 @@ class Search extends React.Component {
         <TopBarg/>
         <Row>
         <Col md="7" className="offset-md-1">
-          <br/>
-          <br/>
-          <br/>
-          <br/>
+         
           <MDBCard className="card-body" block>
             <Row>
               <Col md="6"style={{marginTop:"0.55em"}}>

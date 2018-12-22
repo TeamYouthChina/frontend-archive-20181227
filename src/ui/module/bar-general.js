@@ -25,6 +25,7 @@ class TopBarg extends React.Component {
      
       <div>
           <Router>
+            <div style={{height:"80px"}}>
             <Navbar color="indigo darken-1" dark expand="md" fixed="top" scrolling>
               <Col md="1" className="offset-md-1">
                 <NavbarBrand href="/">
@@ -106,16 +107,15 @@ class TopBarg extends React.Component {
               </NavbarNav>
              
             </Navbar>
+            </div>
           </Router>
         
-        <main>
-        <MDBCollapse id="job" isOpen={this.state.collapseID} style={{height:"3em"}}>
-          <br/>
-          <br/>
-          <br/>
+        <main style={{marginBottom:"30px"}}>
+        <MDBCollapse id="job" isOpen={this.state.collapseID}>
+         
           <Navbar className="indigo-text" color="grey lighten-5" expand="md">
-
-            <NavbarNav left style={{marginLeft:"30em"}}>
+            <Col md="6" className="offset-md-4">
+            <NavbarNav left >
               <NavItem active >
                 <NavLink to="#!">
                   <p className="h6 indigo-text">职  务</p>
@@ -139,16 +139,14 @@ class TopBarg extends React.Component {
                 </NavLink>
               </NavItem>
             </NavbarNav>
-
+            </Col>
           </Navbar>
         </MDBCollapse>
-          <MDBCollapse id="explore" isOpen={this.state.collapseID} style={{height:"3em"}}>
-            <br/>
-            <br/>
-            <br/>
+          <MDBCollapse id="explore" isOpen={this.state.collapseID} >
+        
             <Navbar className="indigo-text" color="grey lighten-5" expand="md">
-
-              <NavbarNav left style={{marginLeft:"40em"}}>
+              <Col md="6" className="offset-md-5">
+              <NavbarNav left>
                 <NavItem active >
                   <NavLink to="#!">
                     <p className="h6 indigo-text">探  索</p>
@@ -178,6 +176,7 @@ class TopBarg extends React.Component {
                   </NavLink>
                 </NavItem>
               </NavbarNav>
+              </Col>
 
             </Navbar>
           </MDBCollapse>
