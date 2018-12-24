@@ -22,12 +22,10 @@ import {Article} from './ui/page/article/article';
 import {QuestionEditor} from './ui/page/question/question-editor';
 import {ArticleEditor} from './ui/page/article/article-editor';
 import Question from './ui/page/question';
-<<<<<<< HEAD
 import CoDetail from './ui/page/coDetail';
-=======
 import {JobInfo} from './ui/page/jobinfo/job-info';
 import {ResumePost} from './ui/page/jobinfo/resume-post';
->>>>>>> vv
+
 
 const App = () => {
   return (
@@ -88,21 +86,22 @@ const App = () => {
               component={routeProps => <ArticleEditor {...routeProps} />}
             />
             <Route
-<<<<<<< HEAD
               path="/company-detail"
               component={routeProps => <CoDetail {...routeProps} />}
-=======
-              path="/job-info"
-              component={routeProps => <JobInfo {...routeProps} />}
             />
             <Route
               path="/resume-post"
               component={routeProps => <ResumePost {...routeProps} />}
->>>>>>> vv
+            />
+            <Route
+              path="/job-info"
+              component={routeProps => <JobInfo {...routeProps} />}
             />
             <Route
               component={routeProps => <PageNoFound {...routeProps} />}
             />
+          
+           
            
           </Switch>
         </div>
