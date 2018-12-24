@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navbar, NavbarNav, NavItem, NavLink, TopBarg} from '../module/bar-general';
-import {Col,MDBCard, MDBCardTitle, MDBCardText,Select,Fa,Row,SelectInput,SelectOptions, SelectOption, MDBCollapse,Input } from 'mdbreact';
+import {TopBarg} from '../module/bar-general';
+import {Col,MDBCard, MDBCardTitle, MDBCardText,Select,Fa,Row,SelectInput,SelectOptions, SelectOption, MDBCollapse,Input, Navbar, NavbarNav, NavItem, NavLink} from 'mdbreact';
 import {FooterPage} from '../module/foot';
 
 class Search extends React.Component {
@@ -33,7 +33,7 @@ class Search extends React.Component {
 
       <div>
         <TopBarg/>
-        <Row>
+        <Row style={{marginTop:"30px"}}>
         <Col md="7" className="offset-md-1">
          
           <MDBCard className="card-body" block>

@@ -110,7 +110,7 @@ class TopBarg extends React.Component {
             </div>
           </Router>
         
-        <main style={{marginBottom:"30px"}}>
+        <main>
         <MDBCollapse id="job" isOpen={this.state.collapseID}>
          
           <Navbar className="indigo-text" color="grey lighten-5" expand="md">

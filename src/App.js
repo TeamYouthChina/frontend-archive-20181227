@@ -22,6 +22,8 @@ import {Article} from './ui/page/article/article';
 import {QuestionEditor} from './ui/page/question/question-editor';
 import {ArticleEditor} from './ui/page/article/article-editor';
 import Question from './ui/page/question';
+import {JobInfo} from './ui/page/jobinfo/job-info';
+import {ResumePost} from './ui/page/jobinfo/resume-post';
 
 const App = () => {
   return (
@@ -82,8 +84,17 @@ const App = () => {
               component={routeProps => <ArticleEditor {...routeProps} />}
             />
             <Route
+              path="/job-info"
+              component={routeProps => <JobInfo {...routeProps} />}
+            />
+            <Route
+              path="/resume-post"
+              component={routeProps => <ResumePost {...routeProps} />}
+            />
+            <Route
               component={routeProps => <PageNoFound {...routeProps} />}
             />
+           
           </Switch>
         </div>
        
