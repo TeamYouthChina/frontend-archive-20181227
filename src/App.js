@@ -22,6 +22,7 @@ import {Article} from './ui/page/article/article';
 import {QuestionEditor} from './ui/page/question/question-editor';
 import {ArticleEditor} from './ui/page/article/article-editor';
 import Question from './ui/page/question';
+import {SearchPageBefore} from './ui/page/search-page-before';
 
 const App = () => {
   return (
@@ -80,6 +81,10 @@ const App = () => {
             <Route
               path="/article-editor"
               component={routeProps => <ArticleEditor {...routeProps} />}
+            />
+            <Route
+              path="/search-page-before"
+              component={routeProps => <SearchPageBefore {...routeProps} />}
             />
             <Route
               component={routeProps => <PageNoFound {...routeProps} />}
