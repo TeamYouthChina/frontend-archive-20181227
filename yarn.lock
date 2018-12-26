@@ -1309,9 +1309,9 @@ ant-design-palettes@^1.1.3:
     tinycolor2 "^1.4.1"
 
 antd@^3.10.8:
-  version "3.11.3"
-  resolved "https://registry.yarnpkg.com/antd/-/antd-3.11.3.tgz#f6d05023262d1a4961cc98c2e874cecb4b0b2f25"
-  integrity sha512-2FQ7F3V1ne0Rh6Hluej7YdGG3DLiAZIAOP5Bcul1wl6UMUMGRCZLjro+crIZr/Gzr1jxC19X7jDjkD1GVrdiBQ==
+  version "3.11.6"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-3.11.6.tgz#bc69434c59025edf65ad077ad2d4d3ce646b2a64"
+  integrity sha512-7JrL5IWH6qLLa8u8H9na0DCTkVzbE3Nyg+QC71FJEEO9hJXsAqybcj3GU+HYe/Zsa2ndlN9TMFlPZoYWX1Rz8w==
   dependencies:
     "@ant-design/icons" "~1.1.15"
     "@ant-design/icons-react" "~1.1.2"
@@ -1338,7 +1338,7 @@ antd@^3.10.8:
     rc-drawer "~1.7.6"
     rc-dropdown "~2.2.1"
     rc-editor-mention "^1.1.7"
-    rc-form "^2.2.7"
+    rc-form "^2.4.0"
     rc-input-number "~4.3.7"
     rc-menu "~7.4.12"
     rc-notification "~3.3.0"
@@ -1932,6 +1932,11 @@ big.js@^3.1.3:
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
   integrity sha512-+hN/Zh2D08Mx65pZ/4g5bsmNiZUuChDiQfTUQ7qJr4/kuopCr88xZsAXv6mBoZEsUI4OuGHlX59qE94K2mMW8Q==
 
+big.js@^5.2.2:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/big.js/-/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
+  integrity sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==
+
 binary-extensions@^1.0.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.12.0.tgz#c2d780f53d45bba8317a8902d4ceeaf3a6385b14"
@@ -2032,9 +2037,9 @@ braft-convert@^2.1.10:
     draft-js "^0.10.3"
 
 braft-editor@^2.1.35:
-  version "2.1.35"
-  resolved "https://registry.yarnpkg.com/braft-editor/-/braft-editor-2.1.35.tgz#cef11dfbc2632fd88deac094f29723fd171a602b"
-  integrity sha512-jXKZCDy5Xs1u3WfhW+2lchEv5czn0j+tTZqFfI10Nie/+baeN6+OOEVjY/CjPEat/ptfbWFKaroUMLILGBW1aA==
+  version "2.1.36"
+  resolved "https://registry.yarnpkg.com/braft-editor/-/braft-editor-2.1.36.tgz#6199cbbbf9d9e0adaf44d203d4eb669100c6fb90"
+  integrity sha512-Dzpw5EJOBCHJB6MHZlydR4fYwqNKmgcwEfakB365SVIgfhyqXZBoZDyW67gotkrOK0g0Xr+PXTjmkNk+EPAXhg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     braft-convert "^2.1.10"
@@ -3659,9 +3664,9 @@ escodegen@^1.11.0, escodegen@^1.9.1:
     source-map "~0.6.1"
 
 eslint-config-react-app@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-3.0.5.tgz#d199088ab486d7ccc56d40dedcb1482b01934fb2"
-  integrity sha512-GjPuy0pbaCkl4+9wm8p0xpl/x/AGFy3wKuju3WNVefDNDDu8T6Ap1OFMDDJbYnOAI+4jfyAE3VT06lAYcJVpdw==
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-3.0.6.tgz#addcae1359235941e95f3c96970b7ac8552e1130"
+  integrity sha512-VL5rA1EBZv7f9toc9x71or7nr4jRmwCH4V9JKB9DFVaTLOLI9+vjWLgQLjMu3xR9iUT80dty86RbCfNaKyrFFg==
   dependencies:
     confusing-browser-globals "^1.0.5"
 
@@ -4292,9 +4297,9 @@ flush-write-stream@^1.0.0:
     readable-stream "^2.0.4"
 
 follow-redirects@^1.0.0:
-  version "1.5.10"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
-  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.6.0.tgz#d12452c031e8c67eb6637d861bfc7a8090167933"
+  integrity sha512-4Oh4eI3S9OueVV41AgJ1oLjpaJUhbJ7JDGOMhe0AFqoSejl5Q2nn3eGglAzRUKVKZE8jG5MNn66TjCJMAnpsWA==
   dependencies:
     debug "=3.1.0"
 
@@ -6174,6 +6179,13 @@ json5@^0.5.0, json5@^0.5.1:
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
   integrity sha1-Hq3nrMASA0rYTiOWdn6tn6VJWCE=
 
+json5@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
+  integrity sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==
+  dependencies:
+    minimist "^1.2.0"
+
 json5@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.1.0.tgz#e7a0c62c48285c628d20a10b85c89bb807c32850"
@@ -6385,7 +6397,7 @@ loader-runner@^2.3.0:
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.3.1.tgz#026f12fe7c3115992896ac02ba022ba92971b979"
   integrity sha512-By6ZFY7ETWOc9RFaAIb23IjJVcM4dvJC/N57nmdz9RSkMXvAXGI7SyVlAw3v8vjtDRlqThgVDVmTnr9fqMlxkw==
 
-loader-utils@1.1.0, loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.0:
+loader-utils@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.1.0.tgz#c98aef488bcceda2ffb5e2de646d6a754429f5cd"
   integrity sha1-yYrvSIvM7aL/teLeZG1qdUQp9c0=
@@ -6393,6 +6405,15 @@ loader-utils@1.1.0, loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.
     big.js "^3.1.3"
     emojis-list "^2.0.0"
     json5 "^0.5.0"
+
+loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.2.1.tgz#64bbbac69aa5840d03754ba676a963dec568e844"
+  integrity sha512-3Zhx4qDqBQ9U8udWB3RMJ29nLu5a3ObNOSzk87woPvge01pi0wABowgv7F79Z4mL0DGtHRi/oOndT34EVhInoQ==
+  dependencies:
+    big.js "^5.2.2"
+    emojis-list "^2.0.0"
+    json5 "^1.0.1"
 
 locate-path@^2.0.0:
   version "2.0.0"
@@ -7391,9 +7412,9 @@ p-limit@^1.1.0:
     p-try "^1.0.0"
 
 p-limit@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.0.0.tgz#e624ed54ee8c460a778b3c9f3670496ff8a57aec"
-  integrity sha512-fl5s52lI5ahKCernzzIyAP0QAZbGIovtVHGwpcu1Jr/EpzLVDI2myISHwGqK7m8uQFugVWSrbxH7XnhGtvEc+A==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.1.0.tgz#1d5a0d20fb12707c758a655f6bbc4386b5930d68"
+  integrity sha512-NhURkNcrVB+8hNfLuysU8enY5xn2KXphsHBaC2YmRNTZRc7RWusw6apSpdEj3jo4CMb6W9nrF6tTnsJsJeyu6g==
   dependencies:
     p-try "^2.0.0"
 
@@ -8607,9 +8628,9 @@ rc-cascader@~0.16.0:
     warning "^4.0.1"
 
 rc-checkbox@~2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/rc-checkbox/-/rc-checkbox-2.1.5.tgz#411858448c0ee2a797ef8544dac63bcaeef722ef"
-  integrity sha512-WXKnZV6ipS3Jsmd7mVenVUQf+ictgWZW0RqiH+7MeYdzGj/SL4g/S6MZgRdgzaBS2tGBCp4bvhGcyZLns6uQxw==
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/rc-checkbox/-/rc-checkbox-2.1.6.tgz#5dc00653e5277018c431fec55e38b91c1f976e90"
+  integrity sha512-+VxQbt2Cwe1PxCvwosrAYXT6EQeGwrbLJB2K+IPGCSRPCKnk9zcub/0eW8A4kxjyyfh60PkwsAUZ7qmB31OmRA==
   dependencies:
     babel-runtime "^6.23.0"
     classnames "2.x"
@@ -8617,9 +8638,9 @@ rc-checkbox@~2.1.5:
     rc-util "^4.0.4"
 
 rc-collapse@~1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/rc-collapse/-/rc-collapse-1.10.0.tgz#b39578633a1e033391597776758763a10d3bc261"
-  integrity sha512-H8cn7yOhSg28anuhZTSbGBTEWYMmEqNHWT2AMCXk6JpYN5RpdJDCWMZitdJYPeKT0axMqQnrNe4upSELmWnTMw==
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/rc-collapse/-/rc-collapse-1.10.1.tgz#cf98d94d8813bfd849276104496c6284326ca6bc"
+  integrity sha512-OQ4f8V3/9rhU0dEzjkHQ4NzWKSjdQwaEbnMs+hkdLUv4wxmiIeJwlDzayl5Vlo7UTF44wdHA9YfM3eWq7AgN2g==
   dependencies:
     classnames "2.x"
     css-animation "1.x"
@@ -8682,7 +8703,7 @@ rc-editor-mention@^1.1.7:
     rc-animate "^2.3.0"
     rc-editor-core "~0.8.3"
 
-rc-form@^2.2.7:
+rc-form@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/rc-form/-/rc-form-2.4.0.tgz#7488619a2ed73fc2f776afc8705e587539d16e19"
   integrity sha512-NuXc+TXOkEmIgVcgvxCUNUNNBaGaPQRuB0WRIACAl4UGkiHTadkBmBUBw9+1WzwutaVIzJi/XVd7rWrI24OyFQ==
@@ -9035,9 +9056,9 @@ react-dom@^16.6.1:
     scheduler "^0.12.0"
 
 react-error-overlay@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
-  integrity sha512-akMy/BQT5m1J3iJIHkSb4qycq2wzllWsmmolaaFVnb+LPV9cIJ/nTud40ZsiiT0H3P+/wXIdbjx2fzF61OaeOQ==
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.1.tgz#56f0439f001ff3588da0f479a86482ccb1e708cb"
+  integrity sha512-gJcOyak5ri9mzhpFObSAkCqNNBCVZE8LaR/mX37agULgSL0dobgX11NVSIetvNzhHMkr6CIqV0xiutvvcjBtkw==
 
 react-event-listener@^0.6.2, react-event-listener@^0.6.4:
   version "0.6.4"
@@ -9820,9 +9841,9 @@ send@0.16.2:
     statuses "~1.4.0"
 
 serialize-javascript@^1.4.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.5.0.tgz#1aa336162c88a890ddad5384baebc93a655161fe"
-  integrity sha512-Ga8c8NjAAp46Br4+0oZ2WxJCwIzwP60Gq1YPgU+39PiTVxyed/iKE/zyZI6+UlVYH5Q4PaQdHhcegIFPZTUfoQ==
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.6.0.tgz#b30ce5ddd6517f2c445e129ff5834a399fb5861e"
+  integrity sha512-AQxrNqu4EXWt03dJdgKXI+Au9+pvEuM5+Nk5g6+TmuxMCkEL03VhZ31HM+VKeaaZbFpDHaoSruiHq4PW9AIrOQ==
 
 serve-index@^1.7.2:
   version "1.9.1"

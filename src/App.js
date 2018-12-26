@@ -22,10 +22,12 @@ import {Article} from './ui/page/article/article';
 import {QuestionEditor} from './ui/page/question/question-editor';
 import {ArticleEditor} from './ui/page/article/article-editor';
 import Question from './ui/page/question';
+
 import CoDetail from './ui/page/coDetail';
 import {JobInfo} from './ui/page/jobinfo/job-info';
 import {ResumePost} from './ui/page/jobinfo/resume-post';
 
+import {SearchPageBefore} from './ui/page/search-page-before';
 
 const App = () => {
   return (
@@ -96,6 +98,10 @@ const App = () => {
             <Route
               path="/job-info"
               component={routeProps => <JobInfo {...routeProps} />}
+            />
+            <Route
+              path="/search-page-before"
+              component={routeProps => <SearchPageBefore {...routeProps} />}
             />
             <Route
               component={routeProps => <PageNoFound {...routeProps} />}
