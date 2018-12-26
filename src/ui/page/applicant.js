@@ -343,6 +343,7 @@ class Education extends React.Component {
                       marginBottom: '9.1px',
                       lineHeight: '1.33em'
                     }}>
+                     
                       <span style={{fontWeight: 'bold'}}>{this.text.major}</span>
                       {(
                         () => {
