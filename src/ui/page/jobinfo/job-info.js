@@ -34,10 +34,8 @@ class JobInfo extends React.Component {
         <div style={{marginBottom: '-250px'}}>
           <View>
 
-            <img className="d-block w-100 card-background"
-                 src="https://ws1.sinaimg.cn/large/94365dd2ly1fyhf1flx7mj20lp04kmyy.jpg"/>
-            <Mask overlay="indigo-light" pattern={7} style={{flexDirection: 'column', height: '100vh'}}
-                  className="flex-center  text-white text-center">
+            <img className="d-block w-100 card-background" src="https://ws1.sinaimg.cn/large/94365dd2ly1fyhf1flx7mj20lp04kmyy.jpg"/>
+            <Mask overlay="indigo-light" pattern={7} style={{flexDirection: 'column', height: '100vh'}} className="flex-center  text-white text-center">
 
             </Mask>
           </View>
@@ -165,9 +163,9 @@ class JobInfo extends React.Component {
 
                   <div className="input-group">
                     <div className="input-group-prepend">
-                          <span className="input-group-text" id="basic-addon">
-                            <i className="fa fa-pencil prefix"></i>
-                          </span>
+                      <span className="input-group-text" id="basic-addon">
+                        <i className="fa fa-pencil prefix"></i>
+                      </span>
                     </div>
                     <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
                   </div>
