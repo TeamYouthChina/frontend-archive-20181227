@@ -43,7 +43,7 @@ const i18n = [
   }
 ];
 
-class SearchPageBefore extends React.Component {
+class SearchPageAfter extends React.Component {
   constructor(props) {
     super(props);
 
@@ -183,42 +183,6 @@ class SearchPageBefore extends React.Component {
                       </MDBCol>
                     </MDBRow>
                     <hr className="my-5"/>
-                    <MDBRow>
-                      <MDBCol>
-                        <MDBCol>
-                          <h3 className="font-weight-bold mb-3 p-0">
-                            <strong>Title of the news</strong>
-                          </h3>
-                          <dl className="row">
-                            <dt>
-                              <MDBChip src="https://mdbootstrap.com/img/Photos/Avatars/img(7).jpg" alt="Contact Person"
-                                       bgColor="blue lighten-4"
-                                       waves>
-                                Caroline Smith
-                              </MDBChip>
-                            </dt>
-                            <dd className="col-sm-9">
-                              , Software Developer
-                            </dd>
-                          </dl>
-
-                          <h6>This is the sixth heading
-                          </h6>
-                        </MDBCol>
-                        <p className="dark-grey-text">
-                          Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                          aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                          voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                          ipsum quia dolor sit amet, psam voluptatem quia consectetur.
-                        </p>
-                        <blockquote className="blockquote">
-                          <p className="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-                            erat a ante.</p>
-                          <footer className="blockquote-footer mb-3">Someone famous in <cite title="Source Title">Source
-                            Title</cite></footer>
-                        </blockquote>
-                      </MDBCol>
-                    </MDBRow>
                   </p>
                 </MDBTabPane>
                 <MDBTabPane tabId="2">
@@ -319,7 +283,7 @@ class SearchPageBefore extends React.Component {
   }
 }
 
-SearchPageBefore.propTypes = {
+SearchPageAfter.propTypes = {
   // route
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
@@ -328,4 +292,4 @@ SearchPageBefore.propTypes = {
   language: PropTypes.string.isRequired
 };
 
-export {SearchPageBefore};
+export {SearchPageAfter};

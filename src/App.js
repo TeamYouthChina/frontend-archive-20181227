@@ -28,6 +28,9 @@ import {JobInfo} from './ui/page/jobinfo/job-info';
 import {ResumePost} from './ui/page/jobinfo/resume-post';
 
 import {SearchPageBefore} from './ui/page/search-page-before';
+import {Connection} from './ui/page/connection';
+import {VideoRecommendation} from './ui/page/video-recommendation';
+import {SearchPageAfter} from './ui/page/search-page-after';
 
 const App = () => {
   return (
@@ -45,6 +48,7 @@ const App = () => {
             />
             <Route
               path="/applicant/:id"
+              
               component={routeProps => <Applicant {...routeProps} />}
             />
             <Route
@@ -102,6 +106,18 @@ const App = () => {
             <Route
               path="/search-page-before"
               component={routeProps => <SearchPageBefore {...routeProps} />}
+            />
+            <Route
+              path="/search-page-after"
+              component={routeProps => <SearchPageAfter {...routeProps} />}
+            />
+            <Route
+              path="/connection"
+              component={routeProps => <Connection {...routeProps} />}
+            />
+            <Route
+              path="/video-recommendation"
+              component={routeProps => <VideoRecommendation {...routeProps} />}
             />
             <Route
               component={routeProps => <PageNoFound {...routeProps} />}

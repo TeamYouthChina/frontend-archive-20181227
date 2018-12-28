@@ -5,22 +5,19 @@ import {languageHelper} from '../../tool/language-helper';
 import {Navbar, NavbarNav, NavItem, NavLink, TopBarg} from '../module/bar-general';
 import {
   Col,
-  MDBCard,
-  MDBCardTitle,
-  MDBCardText,
+  MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage,
   Select,
   Fa,
   Row,
-  SelectInput,
-  SelectOptions,
-  SelectOption,
+  SelectInput, SelectOptions, SelectOption,
   MDBCollapse,
   Input,
-  MDBCardBody, MDBCardHeader, MDBBtn, MDBNav, MDBNavItem, MDBNavLink,
-  MDBContainer, MDBTabPane, MDBTabContent,
-  MDBRow, MDBCol, MDBMask, MDBIcon, MDBView,
+  MDBContainer, 
+  MDBTabPane, MDBTabContent,
+  MDBRow, MDBCol, MDBMask, MDBBtn, MDBIcon, MDBView,
   MDBChip,
-  MDBListGroup, MDBListGroupItem
+  MDBListGroup, MDBListGroupItem,
+  MDBNav, MDBNavItem, MDBNavLink,
 } from 'mdbreact';
 
 import classnames from 'classnames';
@@ -43,7 +40,7 @@ const i18n = [
   }
 ];
 
-class SearchPageBefore extends React.Component {
+class Connection extends React.Component {
   constructor(props) {
     super(props);
 
@@ -117,107 +114,108 @@ class SearchPageBefore extends React.Component {
               >
                 <MDBTabPane tabId="1">
                   <p>
+                    <MDBBtn color="primary">Primary</MDBBtn>
                     <MDBRow>
-                      <MDBCol lg="5" xl="4">
-                        <MDBView hover className="rounded z-depth-1-half mb-lg-0 mb-4">
-                          <img
-                            className="img-fluid"
-                            src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg"
-                            alt=""
-                          />
-                          <a href="#!">
-                            <MDBMask overlay="white-slight"/>
-                          </a>
-                        </MDBView>
-                      </MDBCol>
-                      <MDBCol lg="7" xl="8">
-                        <h3 className="font-weight-bold mb-3 p-0">
-                          <strong>Title of the news</strong>
-                        </h3>
-                        <p className="dark-grey-text">
-                          Nam libero tempore, cum soluta nobis est eligendi optio cumque
-                          nihil impedit quo minus id quod maxime placeat facere possimus,
-                          omnis voluptas assumenda est, omnis dolor repellendus et aut
-                          officiis debitis cum soluta nobis est eligendi placeat facere
-                          aut rerum.
-                        </p>
-                        <p>
-                          by <a href="#!" className="font-weight-bold">Jessica Clark</a>, 19/04/2018
-                        </p>
-                        <MDBBtn color="primary" size="md">
-                          Read More
-                        </MDBBtn>
-                      </MDBCol>
-                    </MDBRow>
-                    <hr className="my-5"/>
-                    <MDBRow>
-                      <MDBCol lg="5" xl="4">
-                        <MDBView hover className="rounded z-depth-1-half mb-lg-0 mb-4">
-                          <img
-                            className="img-fluid"
-                            src="https://mdbootstrap.com/img/Photos/Others/images/31.jpg"
-                            alt=""
-                          />
-                          <a href="#!">
-                            <MDBMask overlay="white-slight"/>
-                          </a>
-                        </MDBView>
-                      </MDBCol>
-                      <MDBCol lg="7" xl="8">
-                        <h3 className="font-weight-bold mb-3 p-0">
-                          <strong>Title of the news</strong>
-                        </h3>
-                        <p className="dark-grey-text">
-                          At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                          blanditiis praesentium voluptatum deleniti atque corrupti quos
-                          dolores et quas molestias excepturi sint occaecati cupiditate
-                          non provident et accusamus iusto odio dignissimos et dolorum
-                          fuga.
-                        </p>
-                        <p>
-                          by <a href="#!" className="font-weight-bold">Jessica Clark</a>, 16/04/2018
-                        </p>
-                        <MDBBtn color="primary" size="md">
-                          Read More
-                        </MDBBtn>
-                      </MDBCol>
-                    </MDBRow>
-                    <hr className="my-5"/>
-                    <MDBRow>
-                      <MDBCol>
-                        <MDBCol>
-                          <h3 className="font-weight-bold mb-3 p-0">
-                            <strong>Title of the news</strong>
-                          </h3>
-                          <dl className="row">
-                            <dt>
-                              <MDBChip src="https://mdbootstrap.com/img/Photos/Avatars/img(7).jpg" alt="Contact Person"
-                                       bgColor="blue lighten-4"
-                                       waves>
-                                Caroline Smith
-                              </MDBChip>
-                            </dt>
-                            <dd className="col-sm-9">
-                              , Software Developer
-                            </dd>
-                          </dl>
+                      <MDBCol md="12">
+                        <div className="card-group my-5">
+                          <MDBCard personal className="mb-md-0 mb-4">
+                            <MDBView hover>
+                              <MDBCardImage
+                                top
+                                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg"
+                                alt="MDBCard image cap"
+                              />
+                              <a href="#!">
+                                <MDBMask overlay="white-slight"/>
+                              </a>
+                            </MDBView>
+                            <MDBCardBody>
+                              <a href="#!">
+                                <MDBCardTitle>Anna</MDBCardTitle>
+                              </a>
+                              <a href="#!" className="card-meta">
+                                Friends
+                              </a>
+                              <MDBCardText>
+                                Anna is a web designer living in New York.
+                              </MDBCardText>
+                              <hr/>
+                              <a href="#!" className="card-meta">
+                <span>
+                  <MDBIcon icon="user"/>
+                  83 Friends
+                </span>
+                              </a>
+                              <p className="card-meta float-right">Joined in 2012</p>
+                            </MDBCardBody>
+                          </MDBCard>
 
-                          <h6>This is the sixth heading
-                          </h6>
-                        </MDBCol>
-                        <p className="dark-grey-text">
-                          Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                          aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                          voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                          ipsum quia dolor sit amet, psam voluptatem quia consectetur.
-                        </p>
-                        <blockquote className="blockquote">
-                          <p className="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-                            erat a ante.</p>
-                          <footer className="blockquote-footer mb-3">Someone famous in <cite title="Source Title">Source
-                            Title</cite></footer>
-                        </blockquote>
+                          <MDBCard personal className="mb-md-0 mb-4">
+                            <MDBView hover>
+                              <MDBCardImage
+                                top
+                                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg"
+                                alt="MDBCard image cap"
+                              />
+                              <a href="#!">
+                                <MDBMask overlay="white-slight"/>
+                              </a>
+                            </MDBView>
+                            <MDBCardBody>
+                              <a href="#!">
+                                <MDBCardTitle>John</MDBCardTitle>
+                              </a>
+                              <a href="#!" className="card-meta">
+                                Coworker
+                              </a>
+                              <MDBCardText>John is a copywriter living in Seattle.</MDBCardText>
+                              <hr/>
+                              <a href="#!" className="card-meta">
+                <span>
+                  <MDBIcon icon="user"/>
+                  48 Friends
+                </span>
+                              </a>
+                              <p className="card-meta float-right">Joined in 2015</p>
+                            </MDBCardBody>
+                          </MDBCard>
+
+                          <MDBCard personal className="mb-md-0 mb-4">
+                            <MDBView hover>
+                              <MDBCardImage
+                                top
+                                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(28).jpg"
+                                alt="MDBCard image cap"
+                              />
+                              <a href="#!">
+                                <MDBMask overlay="white-slight"/>
+                              </a>
+                            </MDBView>
+                            <MDBCardBody>
+                              <a href="#!">
+                                <MDBCardTitle>Sara</MDBCardTitle>
+                              </a>
+                              <a href="#!" className="card-meta">
+                                Coworker
+                              </a>
+                              <MDBCardText>Sara is a video maker living in Tokyo.</MDBCardText>
+                              <hr/>
+                              <a href="#!" className="card-meta">
+                <span>
+                  <MDBIcon icon="user"/>
+                  127 Friends
+                </span>
+                              </a>
+                              <p className="card-meta float-right">Joined in 2014</p>
+                            </MDBCardBody>
+                          </MDBCard>
+                        </div>
                       </MDBCol>
+                    </MDBRow>
+                    <MDBRow center>
+                      <MDBBtn color="primary" size="md">
+                        Read More
+                      </MDBBtn>
                     </MDBRow>
                   </p>
                 </MDBTabPane>
@@ -319,7 +317,7 @@ class SearchPageBefore extends React.Component {
   }
 }
 
-SearchPageBefore.propTypes = {
+Connection.propTypes = {
   // route
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
@@ -328,4 +326,4 @@ SearchPageBefore.propTypes = {
   language: PropTypes.string.isRequired
 };
 
-export {SearchPageBefore};
+export {Connection};
